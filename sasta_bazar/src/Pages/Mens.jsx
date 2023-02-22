@@ -2,11 +2,11 @@ import { Box, Heading, Spinner, Stack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCards from "../Components/ProductCards";
-import { getMensData } from "../Redux/MensReducer/action";
+import { getMensData } from "../Redux/ProductReducer/action";
 const Mens = () => {
   const dispatch = useDispatch();
   const { isLoading, isError, mens_data } = useSelector(
-    (store) => store.MensReducer
+    (store) => store.ProductReducer
   );
   //   console.log(mens_data, isLoading)
   useEffect(() => {

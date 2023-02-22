@@ -1,5 +1,5 @@
 import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
 import thunk from "redux-thunk";
-import { reducer as MensReducer } from "./MensReducer/reducer";
-let mainReducer = combineReducers({ MensReducer });
+import { reducer as ProductReducer } from "./ProductReducer/reducer";
+let mainReducer = combineReducers({ ProductReducer });
 export const store = legacy_createStore(mainReducer, applyMiddleware(thunk));
