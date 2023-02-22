@@ -8,7 +8,7 @@ const Mens = () => {
   const { isLoading, isError, mens_data } = useSelector(
     (store) => store.MensReducer
   );
-  //   console.log(mens_data, isLoading);
+  //   console.log(mens_data, isLoading)
   useEffect(() => {
     dispatch(getMensData());
   }, []);
