@@ -14,12 +14,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
-<<<<<<< HEAD
-=======
     "react-redux": "^8.0.5",
->>>>>>> ab7e8997d58b125d09d070ad10beaafe4b7f13c3
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
