@@ -1,20 +1,18 @@
-import { Box, Heading, Spinner, Button, Stack } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Box, Button, Heading, Spinner, Stack } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import MensProductCards from "../Components/MensProductCards";
+import MobileAccessoriesCards from "../Components/MobileAccessoriesCards";
+
+import { getMobileData } from "../Redux/ProductReducer/action";
 import { FaArrowUp } from "react-icons/fa";
-import { getMensData } from "../Redux/ProductReducer/action";
-const Mens = () => {
+import { useEffect, useState } from "react";
+
+//
+const MobileAccessories = () => {
   const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
-  const { isLoading, isError, mens_data } = useSelector(
+  const { isLoading, isError, mobile_data } = useSelector(
     (store) => store.ProductReducer
   );
-  //   console.log(mens_data, isLoading)
-
-  useEffect(() => {
-    dispatch(getMensData());
-  }, []);
   // Show button when page is scrolled down
   useEffect(() => {
     const toggleVisibility = () => {
@@ -26,6 +24,9 @@ const Mens = () => {
     };
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+  useEffect(() => {
+    dispatch(getMobileData());
   }, []);
   // Scroll to top when button is clicked
   const scrollToTop = () => {
@@ -52,8 +53,8 @@ const Mens = () => {
       ) : isError ? (
         <Heading>Error404</Heading>
       ) : (
-        mens_data &&
-        mens_data.map((el) => <MensProductCards key={el.id} {...el} />)
+        mobile_data &&
+        mobile_data.map((el) => <MobileAccessoriesCards key={el.id} {...el} />)
       )}
       <Box>
         <Button
@@ -80,4 +81,4 @@ const Mens = () => {
   );
 };
 
-export default Mens;
+export default MobileAccessories;
