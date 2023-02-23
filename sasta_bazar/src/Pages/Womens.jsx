@@ -1,19 +1,18 @@
-import { Box, Heading, Spinner, Button, Stack } from "@chakra-ui/react";
+import { Box, Heading, Spinner, Stack, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import MensProductCards from "../Components/MensProductCards";
 import { FaArrowUp } from "react-icons/fa";
-import { getMensData } from "../Redux/ProductReducer/action";
-const Mens = () => {
+import WomensProductCards from "../Components/WomensProductCards";
+import { getWomensData } from "../Redux/ProductReducer/action";
+const Womens = () => {
   const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
-  const { isLoading, isError, mens_data } = useSelector(
+  const { isLoading, isError, womens_data } = useSelector(
     (store) => store.ProductReducer
   );
   //   console.log(mens_data, isLoading)
-
   useEffect(() => {
-    dispatch(getMensData());
+    dispatch(getWomensData());
   }, []);
   // Show button when page is scrolled down
   useEffect(() => {
@@ -52,8 +51,8 @@ const Mens = () => {
       ) : isError ? (
         <Heading>Error404</Heading>
       ) : (
-        mens_data &&
-        mens_data.map((el) => <MensProductCards key={el.id} {...el} />)
+        womens_data &&
+        womens_data.map((el) => <WomensProductCards key={el.id} {...el} />)
       )}
       <Box>
         <Button
@@ -80,4 +79,4 @@ const Mens = () => {
   );
 };
 
-export default Mens;
+export default Womens;
