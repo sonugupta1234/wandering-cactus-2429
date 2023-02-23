@@ -4,7 +4,7 @@ import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
-import photo from "../Images/channels4_profile.jpg"
+import photo from "../Images/download-removebg-preview.jpg"
 
 // Settings for the slider
 const settings = {
