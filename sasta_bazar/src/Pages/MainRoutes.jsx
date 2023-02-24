@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Homepage } from "./Homepage";
 import Mens from "./Mens";
 import MobileAccessories from "./MobileAccessories";
+import ShoppingPage from "./Shopping/ShoppingPage";
 import SignleProductPage from "./SignleProductPage";
 import Womens from "./Womens";
 
@@ -17,7 +18,6 @@ const MainRoutes = () => {
         <Route path="/womens/:id" element={<SignleProductPage />} />
         <Route path="/mobile" element={<MobileAccessories />} />
         <Route path="/mobile/:id" element={<SignleProductPage />} />
-
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
       </Routes>
     </div>

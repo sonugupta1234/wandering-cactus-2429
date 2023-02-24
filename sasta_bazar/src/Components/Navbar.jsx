@@ -7,6 +7,7 @@ import {RiMessage2Line} from "react-icons/ri"
 import {IoMdContact} from "react-icons/io"
 import {RiArrowDropDownLine} from "react-icons/ri"
 import {Box,Text,Flex,Image} from "@chakra-ui/react"
+import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
   return (
@@ -18,10 +19,12 @@ export const Navbar = () => {
 
        <Box width="30%" height="70px" mt={5} >
         <Flex justifyContent={'space-between'}>
-        <Box>
+       <Link to="/shoping">
+       <Box>
         <CiShoppingTag fontSize={"25px"} color="white"/>
         <Text color="white" >Shopping</Text>
         </Box>
+       </Link>
 
         <Box>
         <SiHomeassistantcommunitystore fontSize={"25px"} color="white"/>
