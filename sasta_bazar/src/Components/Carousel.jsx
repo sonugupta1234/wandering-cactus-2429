@@ -4,7 +4,7 @@ import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
-import photo from "../Images/download-removebg-preview.jpg"
+import photo from "../Images/home-banner-4.jpg"
 
 // Settings for the slider
 const settings = {
@@ -31,7 +31,8 @@ export default function Carousel() {
 
   // These are the images used in the slide
   const cards = [
-    "https://hm.imimg.com/imhome_gifs/passion-business.jpg"
+    "https://hm.imimg.com/imhome_gifs/passion-business.jpg",
+    photo
     
   ];
 
@@ -40,7 +41,7 @@ export default function Carousel() {
       position={'relative'}
       height={'370px'}
       width={'100%'}
-      overflow={'hidden'}>
+       overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -84,7 +85,7 @@ export default function Carousel() {
         {cards.map((url, index) => (
           <Box
             key={index}
-            height={'6xl'}
+            height={'xs'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
