@@ -18,23 +18,23 @@ export const Homepage = () => {
   return (
      <Box>
         <Navbar />
-        <Box height="230px" border="1px solid white" filter="auto" brightness="40%" backgroundImage="url('https://legacyscs.com/wp-content/uploads/2019/10/Warehouse-RFP-770x253.jpg')"
+        <Box h={{lg: "230px" , base: "470px"}} w={{lg: "100%", base: "35%"}} border="1px solid white"  backgroundImage="url('https://legacyscs.com/wp-content/uploads/2019/10/Warehouse-RFP-770x253.jpg')"
        >
         
         
-          <Heading mt={20} color="white">Search for products & find verified sellers near you</Heading>
-          <Box width="80%" height="50px"   mt={10}  ml={300} >
-            <Flex>
-            <Button height="50px" width="15%" fontSize={'17px'} borderRadius="0px" >
+          <Heading mt={20} color="white" filter="auto" brightness="100%">Search for products & find verified sellers near you</Heading>
+          <Box w={{lg: "80%", base: "90%"}} height="50px"   mt={10}  ml={{lg: "300px", base: "30px"}} >
+            <Flex direction={{lg: "row", base: "column"}}>
+            <Button height="50px" w={{lg: "15%", base: "75%"}} fontSize={'17px'} borderRadius="0px" >
             <CiLocationOn />
             <span>All India</span>
             <RiArrowDropDownLine />
             </Button>
             
             
-            <Input  height="50px" borderRadius="0px" width="40%"  variant='filled' onChange={{backgroundColor: "white"}} placeholder='Enter product/service name'/>
+            <Input  height="50px" filter="auto" brightness="100%" borderRadius="0px" w={{lg: "40%", base: "75%"}}  variant='filled' onChange={{backgroundColor: "white"}} placeholder='Enter product/service name'/>
             
-            <Button height="50px" borderRadius="0px" width="10%" color="white" backgroundColor={"#048277"} _hover={{backgroundColor: "#048277"}}>
+            <Button height="50px" borderRadius="0px" w={{lg: "10%", base: "75%"}} color="white" backgroundColor={"#048277"} _hover={{backgroundColor: "#048277"}}>
              < BsSearch />
               Search
             </Button>
@@ -43,7 +43,7 @@ export const Homepage = () => {
       </Box>
 
       <Box width="100%"  mt={6} >
-        <Flex justifyContent={'space-between'}>
+        <Flex justifyContent={'space-between'} direction={{lg: "row", base: "column"}}>
         <Box >
          <Flex>
         <BiBuildings fontSize={"30px"}/>
@@ -84,18 +84,18 @@ export const Homepage = () => {
       </Box>
 
       <Box width="100%" mt={6}>
-        <Flex>
+        <Flex direction={{lg: "row", base: "column"}}>
           <Box width="30%" >
-           <Heading mt={10}>
+           <Heading mt={{lg: "10px", base: "5px"}}>
            We connect
             Buyers & Sellers
            </Heading>
            <Text mt={6}>IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers.</Text>
           
           <Box mt={10}>
-            <Flex justifyContent={'space-between'}>
-            <Box>
-             < SiTrustpilot color="blue" fontSize={'30px'}/>
+            <Flex justifyContent={'space-between'} direction={{lg: "row", base: "column"}}>
+            <Box >
+             < SiTrustpilot color="blue" fontSize={'30px'} />
               Trusted Platform
             </Box>
 
@@ -111,7 +111,7 @@ export const Homepage = () => {
             </Flex>
           </Box>
           </Box>
-          <Box width="70%" >
+          <Box w={{lg: "70%", base: "35%"}} >
           <Carousel />
           </Box>
         </Flex>
@@ -134,14 +134,14 @@ export const Homepage = () => {
 
         <Box width="70%">
           <Grid templateColumns='repeat(3, 1fr)' gap={4}>
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/RS/UH/GLADMIN-5385/brick-making-machines-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Brick Making Machines</Text>
+               <Text fontWeight={'bold'}>Brick Making Machines</Text>
                <Text>Fly Ash Brick Making Machine</Text>
                <Text>Clay Brick Making Machine</Text>
                <Text>Cement Brick Making Machine</Text>
@@ -150,14 +150,14 @@ export const Homepage = () => {
            </GridItem>
 
           
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/OI/XL/GLADMIN-34562/passenger-lifts-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Passenger Lifts</Text>
+               <Text fontWeight={'bold'}>Passenger Lifts</Text>
                <Text>Residential Elevator</Text>
                <Text>Kone Passenger lift</Text>
                <Text>Stair Lift</Text>
@@ -166,14 +166,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/KS/JQ/GLADMIN-2475/tmt-bars-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>TMT Bars</Text>
+               <Text fontWeight={'bold'}>TMT Bars</Text>
                <Text>TMT Steel Bars</Text>
                <Text>TATA TMT Bars</Text>
                <Text>Kamdhenu TMT Bars</Text>
@@ -182,14 +182,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://5.imimg.com/data5/QO/YD/GLADMIN-2/plywoods-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Plywoods</Text>
+               <Text fontWeight={'bold'}>Plywoods</Text>
                <Text>Shuttering Plywood</Text>
                <Text>Laminated Plywood</Text>
                <Text>Waterproof Plywood</Text>
@@ -198,14 +198,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/JE/DA/MY-2/hydraulic-excavator-500x500-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Excavator</Text>
+               <Text fontWeight={'bold'}>Excavator</Text>
                <Text>Hitachi Excavator</Text>
                <Text>Hyundai Excavator</Text>
                <Text>Komatsu Excavator</Text>
@@ -214,14 +214,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/VG/QG/GLADMIN-27799/emulsion-paints-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Emulsion Paints</Text>
+               <Text fontWeight={'bold'}>Emulsion Paints</Text>
                <Text>Asian Emulsion Paints</Text>
                <Text>Berger Emulsion Paints</Text>
                <Text>Nerolac Emulsion Paints</Text>
@@ -231,14 +231,14 @@ export const Homepage = () => {
 
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/UT/PB/GLADMIN-12558/wood-door-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Wooden Door</Text>
+               <Text fontWeight={'bold'}>Wooden Door</Text>
                <Text>Designer Wooden Door</Text>
                <Text>Plywood Door</Text>
                <Text>Wooden Flush Doors</Text>
@@ -248,14 +248,14 @@ export const Homepage = () => {
 
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/VN/LA/GLADMIN-2047/pvc-pipes-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>PVC Pipes</Text>
+               <Text fontWeight={'bold'}>PVC Pipes</Text>
                <Text>Finolex Pipes</Text>
                <Text>Rigid PVC Pipes</Text>
                <Text>Flexible PVC Pipes</Text>
@@ -264,14 +264,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/YD/WE/GLADMIN-23639/building-brick-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Building Brick</Text>
+               <Text fontWeight={'bold'}>Building Brick</Text>
                <Text>Red Brick</Text>
                <Text>Fly Ash Bricks</Text>
                <Text>Cement Brick</Text>
@@ -306,14 +306,14 @@ export const Homepage = () => {
 
         <Box width="70%">
           <Grid templateColumns='repeat(3, 1fr)' gap={4}>
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://4.imimg.com/data4/HI/RA/GLADMIN-181283/photocopier-machine-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Office Automation Products</Text>
+               <Text fontWeight={'bold'}>Office Automation Products</Text>
                <Text>Multifunction Printer</Text>
                <Text>Xerox Machines</Text>
                <Text>Fingerprint Scanners</Text>
@@ -322,14 +322,14 @@ export const Homepage = () => {
            </GridItem>
 
           
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://5.imimg.com/data5/GLADMIN/Default/2022/3/MZ/VG/IH/87924/arduino-sensor-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Sensors & Transducers</Text>
+               <Text fontWeight={'bold'}>Sensors & Transducers</Text>
                <Text>Level Sensors</Text>
                <Text>Proximity Sensor</Text>
                <Text>Sensor for Home & Office</Text>
@@ -338,14 +338,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://5.imimg.com/data5/JW/EX/GLADMIN-2/digital-controller-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Process Controllers</Text>
+               <Text fontWeight={'bold'}>Process Controllers</Text>
                <Text>Level Controllers</Text>
                <Text>Motor Controllers</Text>
                <Text>Temperature Controller</Text>
@@ -354,14 +354,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://5.imimg.com/data5/RO/JS/GLADMIN-2/lighting-controllers1-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Control & Automation</Text>
+               <Text fontWeight={'bold'}>Control & Automation</Text>
                <Text>VFD</Text>
                <Text>PLC</Text>
                <Text>HMI</Text>
@@ -370,14 +370,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/XB/KH/GLADMIN-105874/light-emitting-diode-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Diodes & Active Devices</Text>
+               <Text fontWeight={'bold'}>Diodes & Active Devices</Text>
                <Text>Integrated Circuits</Text>
                <Text>Thyristors</Text>
                <Text>Light Emitting Diode</Text>
@@ -386,14 +386,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://5.imimg.com/data5/GLADMIN/Default/2022/6/SI/KH/VT/87924/house-wire-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Wires & Cables</Text>
+               <Text fontWeight={'bold'}>Wires & Cables</Text>
                <Text>House Wire</Text>
                <Text>Armoured Cable</Text>
                <Text>Power Cable</Text>
@@ -403,14 +403,14 @@ export const Homepage = () => {
 
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://5.imimg.com/data5/VB/IL/GLADMIN-2/street-light-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Commercial Lights</Text>
+               <Text fontWeight={'bold'}>Commercial Lights</Text>
                <Text>Flood Lights</Text>
                <Text>Street Lights</Text>
                <Text>Panel Light</Text>
@@ -420,14 +420,14 @@ export const Homepage = () => {
 
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://5.imimg.com/data5/LX/YW/GLADMIN-2/inverter-batteries-125x125.png" alt=""/>
               </Box>
 
               <Box>
-               <Text>Battries</Text>
+               <Text fontWeight={'bold'}>Battries</Text>
                <Text>Lithium Battery</Text>
                <Text>Inverter Batteries</Text>
                <Text>Electric Vehicle Battery</Text>
@@ -436,14 +436,14 @@ export const Homepage = () => {
            </GridItem>
 
 
-           <GridItem>
+           <GridItem boxShadow={'2xl'}>
             <Flex>
               <Box>
               <Image src="https://3.imimg.com/data3/EX/HO/GLADMIN-37340/solar-power-systems-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
-               <Text>Solar & Renewable Energy</Text>
+               <Text fontWeight={'bold'}>Solar & Renewable Energy</Text>
                <Text>Solar Panels</Text>
                <Text>Solar Inverter</Text>
                <Text>Solar Pumps</Text>
@@ -478,14 +478,14 @@ export const Homepage = () => {
 
   <Box width="70%">
     <Grid templateColumns='repeat(3, 1fr)' gap={4}>
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://hm.imimg.com/imhome_gifs/cvid09.png" alt=""/>
         </Box>
 
         <Box>
-         <Text>Medical Laboratory Instruments</Text>
+         <Text fontWeight={'bold'}>Medical Laboratory Instruments</Text>
          <Text>Rapid Test Kit</Text>
          <Text>Biochemistry Analyzer</Text>
          <Text>Blood Bank Equipments
@@ -496,14 +496,14 @@ Hematology Analyzers</Text>
      </GridItem>
 
     
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/IW/EI/MY-3076857/patient-monitoring-system-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Patient Monitoring Systems</Text>
+         <Text fontWeight={'bold'}>Patient Monitoring Systems</Text>
          <Text>Blood Pressure Machine</Text>
          <Text>Capnometer</Text>
          <Text>Medical Monitor
@@ -514,14 +514,14 @@ Surgical Monitor</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/NT/KF/MY-1383163/infrared-thermometer-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Thermometer</Text>
+         <Text fontWeight={'bold'}>Thermometer</Text>
          <Text>Infrared Thermometers</Text>
          <Text>Forehead Thermometer</Text>
          <Text>Non Contact Thermometer</Text>
@@ -530,14 +530,14 @@ Surgical Monitor</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/CM/CP/JH/SELLER-5038493/neonatal-portable-icu-ventilator-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Medical Imaging Machine</Text>
+         <Text fontWeight={'bold'}>Medical Imaging Machine</Text>
          <Text>X Ray Machine</Text>
          <Text>Ultrasound Machines</Text>
          <Text>ECG Machine
@@ -548,14 +548,14 @@ Doppler Machine</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/OQ/SV/MY-905156/stethoscope-cardio-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Stethoscope</Text>
+         <Text fontWeight={'bold'}>Stethoscope</Text>
          <Text>Cardiology Stethoscope</Text>
          <Text>Dual Head Stethoscope</Text>
          <Text>Electronic Stethoscope
@@ -566,14 +566,14 @@ Pediatric Stethoscope</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/NU/ZZ/AQ/SELLER-35236796/electric-suction-unit-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Suction Machine</Text>
+         <Text fontWeight={'bold'}>Suction Machine</Text>
          <Text>Electric Suction Unit</Text>
          <Text>Foot Operated Suction Unit</Text>
          <Text>Liposuction Machine
@@ -610,14 +610,14 @@ Central Suction System</Text>
 
   <Box width="70%">
     <Grid templateColumns='repeat(3, 1fr)' gap={4}>
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/TM/DV/LX/SELLER-33028307/corporate-domestic-courier-service-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Transportation Services</Text>
+         <Text fontWeight={'bold'}>Transportation Services</Text>
          <Text>Goods Transport Services</Text>
          <Text>Dangerous Goods Transportation</Text>
          <Text>Food Transportation Services</Text>
@@ -626,14 +626,14 @@ Central Suction System</Text>
      </GridItem>
 
     
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/UU/AO/IG/SELLER-47839771/local-shifting-service-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Domestic Relocation Service</Text>
+         <Text fontWeight={'bold'}>Domestic Relocation Service</Text>
          <Text>Packers Movers</Text>
          <Text>Loading Unloading Services</Text>
          <Text>Local Shifting Service</Text>
@@ -642,14 +642,14 @@ Central Suction System</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/SR/AM/MY-4376139/cargo-shipping-service-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Cargo & Shipping</Text>
+         <Text fontWeight={'bold'}>Cargo & Shipping</Text>
          <Text>Air Cargo Service</Text>
          <Text>Rail Cargo</Text>
          <Text>Sea Cargo Service</Text>
@@ -658,14 +658,14 @@ Central Suction System</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/HD/KA/QI/GLADMIN-65832/heavy-duty-truck-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Truck Rentals</Text>
+         <Text fontWeight={'bold'}>Truck Rentals</Text>
          <Text>Tipper Truck Rental Services</Text>
          <Text>Full Trucks Service</Text>
          <Text>Lorry Transport Services
@@ -676,14 +676,14 @@ Container Truck Service</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/UE/AD/MY-37442849/local-logistics-service-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Logistics Service</Text>
+         <Text fontWeight={'bold'}>Logistics Service</Text>
          <Text>Third Party Logistics</Text>
          <Text>Cold Chain Logistics</Text>
          <Text>Local Logistics Services
@@ -694,14 +694,14 @@ Contract Logistics Service</Text>
      </GridItem>
 
 
-     <GridItem>
+     <GridItem boxShadow={'2xl'}>
       <Flex>
         <Box>
         <Image src="https://5.imimg.com/data5/SR/RI/MY-12870604/parcel-delivery-services-125x125.jpg" alt=""/>
         </Box>
 
         <Box>
-         <Text>Other Services</Text>
+         <Text fontWeight={'bold'}>Other Services</Text>
          <Text>Warehousing Services</Text>
          <Text>Home Delivery Service</Text>
          <Text>Courier Service</Text>
@@ -741,7 +741,7 @@ Contract Logistics Service</Text>
 
 
   <GridItem>
-    <Image width="50%" src="https://5.imimg.com/data5/SELLER/Default/2021/5/JM/WV/AH/16255361/jaguar-bathroom-fittings-500x500.jpg" alt=""/>
+    <Image width="30%" src="https://5.imimg.com/data5/SELLER/Default/2021/5/JM/WV/AH/16255361/jaguar-bathroom-fittings-500x500.jpg" alt=""/>
   </GridItem>
   
   </Grid>
@@ -826,7 +826,7 @@ Contract Logistics Service</Text>
   <Flex>
   <TabPanels>
     <TabPanel>
-      <Text>About Us</Text>
+      <Text fontWeight={'bold'}>About Us</Text>
        <Text>Join Sales</Text>
        <Text>Success Stories</Text>
        <Text>Press Section</Text>
@@ -842,7 +842,7 @@ Contract Logistics Service</Text>
   
   <TabPanels>
     <TabPanel>
-    <Text>Help</Text>
+    <Text fontWeight={'bold'}>Help</Text>
        <Text>Feedback</Text>
        <Text>Complaints</Text>
        <Text>Customer Care</Text>
@@ -855,7 +855,7 @@ Contract Logistics Service</Text>
 
   <TabPanels>
     <TabPanel>
-    <Text>Suppliers Tool Kit</Text>
+    <Text fontWeight={'bold'}>Suppliers Tool Kit</Text>
        <Text>Sell on IndiaMART</Text>
        <Text>Latest BuyLead</Text>
        <Text>Learning Centre</Text>
@@ -867,7 +867,7 @@ Contract Logistics Service</Text>
 
   <TabPanels>
     <TabPanel>
-    <Text>Buyers Tool Kit</Text>
+    <Text fontWeight={'bold'}>Buyers Tool Kit</Text>
        <Text>Post Your Requirement</Text>
        <Text>Products you Buy</Text>
        <Text>Search Products & Suppliers</Text>
@@ -879,7 +879,7 @@ Contract Logistics Service</Text>
 
   <TabPanels>
     <TabPanel>
-    <Text>Accounting Solutions</Text>
+    <Text fontWeight={'bold'}>Accounting Solutions</Text>
        <Text>Accounting Software</Text>
        <Text>Tally on Mobile</Text>
        <Text>GST e-Invoice</Text>
