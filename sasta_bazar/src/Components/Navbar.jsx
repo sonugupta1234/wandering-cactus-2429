@@ -6,6 +6,9 @@ import {FiHelpCircle} from "react-icons/fi"
 import {RiMessage2Line} from "react-icons/ri"
 import {IoMdContact} from "react-icons/io"
 import {RiArrowDropDownLine} from "react-icons/ri"
+
+import { Link } from 'react-router-dom'
+
 import {RxHamburgerMenu} from "react-icons/rx"
 import {GrClose} from "react-icons/gr"
 import {Box,Text,Flex,Image,Modal,
@@ -15,6 +18,7 @@ import {Box,Text,Flex,Image,Modal,
   ModalFooter,
   ModalBody,
   ModalCloseButton,useToast,useDisclosure, FormControl, FormLabel, Input, InputGroup, InputLeftAddon, Button, IconButton, Stack, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react"
+
 
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,6 +44,12 @@ export const Navbar = () => {
          <Image w={{lg: "80%", base: "100%"}} h={{lg: "80px", base: "45px"}} src={photo} alt=""/>
        </Box>
 
+
+       <Box width="30%" height="70px" mt={5} >
+        <Flex justifyContent={'space-between'}>
+       <Link to="/shoping">
+       <Box>
+
        
        <IconButton
        size={'sm'}
@@ -55,9 +65,11 @@ export const Navbar = () => {
        <Box width="30%" height="70px" mt={5}  display={{base: 'none',md: 'flex'}}  justifyContent={{md: 'space-between'}}>
         
         <Box>
+
         <CiShoppingTag fontSize={"25px"} color="white"/>
         <Text color="white" >Shopping</Text>
         </Box>
+       </Link>
 
         <Box>
         <SiHomeassistantcommunitystore fontSize={"25px"} color="white"/>

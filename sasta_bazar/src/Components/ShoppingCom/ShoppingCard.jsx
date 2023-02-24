@@ -11,14 +11,14 @@ const ShoppingCard = ({image,brands,price,title}) => {
         src={image}
       ></Image>
       <Heading size="sm">{brands}</Heading>
-      <Text p={4} color="black">
+      <Text pt={4} pb={4} color="black">
         {title}
       </Text>
       <Heading color="blue" size="sm">
         {price}
       </Heading>
       <Button
-        width="70%"
+        width="100%"
         border="1px solid blue"
         bg="white"
         _hover={{ bg: "blue", color: "white" }}

@@ -4,15 +4,17 @@ import {
   Button,
   Flex,
   Heading,
+  HStack,
   Image,
   Input,
   InputGroup,
   InputLeftAddon,
   InputRightAddon,
-  Link,
   Spacer,
   Text,
+  Icon
 } from "@chakra-ui/react";
+import {Link} from "react-router-dom"
 import photo from "../../Images/download-removebg-preview.jpg";
 import { BsSearch } from "react-icons/bs";
 import ShoppingCard from "./ShoppingCard";
@@ -20,6 +22,8 @@ import { store } from "../../Redux/store";
 import { useDispatch, useSelector } from 'react-redux'
 import { getSop_Accesories, getSop_men, getSop_Women } from "../../Redux/ShoppingReducer/action";
 import CommonShopCard from "./CommonShopCard";
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+
 
 const Navbar = () => {
   const[menCount,setMenCount]=useState(10)
@@ -111,49 +115,59 @@ console.log(menCount)
     },
   ];
 
-  return <Box m={3}>
-      <Box w="90%" margin="auto" display="flex" alignItems="center">
-        <Image pr={10} width="150px" h={12} src={photo}></Image>
-        <InputGroup pl={10} pr={10} size="sm">
+  return <Box m={3} >
+      <Box  w="90%" margin="auto" display="flex" direction={["column" ,"row","row"]} alignItems="center">
+        <Image pr={10} width="auto" h={12} src="https://shopping.imimg.com/style/im_logo.jpg"></Image>
+        <InputGroup pl={10} pr={10} size="md">
           <InputLeftAddon h={12} bg="white" children="Shop" />
           <Input h={12} placeholder="what are you looking for" />
           <InputRightAddon
             bg="#2a6462"
             h={12}
-            children={<>{BsSearch}Search</>}
+            color='white'
+            children={<><BsSearch />Search</>}
           />
         </InputGroup>
-        <Button h={12} bg="blue">
+        <Button h={12} pl={6} pr={6}  bg="blue" color="white">
           Bulk Requirement
         </Button>
+    <Link to="###">
+    <Box >
+     <Flex alignItems="center" ml={3}>
+     <Icon fontSize={'3rem'} as={AiOutlineShoppingCart}/>
+      <Heading size="md">Cart</Heading>
+     </Flex>
+      </Box>
+    </Link>
       </Box>
       {/* ////////////////////////////////////////////////// */}
-      <Box
+      <HStack
         pt={10}
         w="90%"
         margin="auto"
         display="grid"
-        gridTemplateColumns="repeat(10,1fr)"
+        gridTemplateColumns={["1fr 1fr","1fr 1fr 1fr 1fr","1fr 1fr 1fr 1fr 1fr 1fr","1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr","1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr"]}
         alignItems="center"
       >
         {data.map((el, i) => {
           return (
-            <Link to="">
+            <Link to="/mens">
               <Flex
-                direction={"column"}
+                direction="column"
                 alignItems="center"
                 gap={"10px"}
                 m="0.5rem"
                 key={i + 1}
               >
                 <Box>
-                  <Image
-                    width="100%"
+                  <Image 
+                    width="60px"
                     boxShadow={"lg"}
                     p={2}
-                    borderRadius="40%"
-                    height="50px"
+                    borderRadius="50%"
+                    height="60px"
                     src={el.image}
+                    objectFit="fill"
                   />
                 </Box>
                 <Text color="black">{el.name}</Text>
@@ -161,7 +175,7 @@ console.log(menCount)
             </Link>
           );
         })}
-      </Box>
+      </HStack>
       <Box pt={10} w="90%" margin="auto">
         <Image
           width="100%"
@@ -176,8 +190,8 @@ console.log(menCount)
           src="https://shopping.imimg.com/style/stmbnr_D1.webp"
         ></Image>
       </Box>
-      <Box>
-        <Box w="90%">
+      <Box >
+        <Box  w="90%">
           <Heading>Featured Products</Heading>
         </Box>
         <Box
@@ -185,7 +199,7 @@ console.log(menCount)
           w="90%"
           margin="auto"
           display="grid"
-          gridTemplateColumns="repeat(5,1fr)"
+          gridTemplateColumns={["1fr", "1fr 1fr","1fr 1fr 1fr","1fr 1fr 1fr 1fr","1fr 1fr 1fr 1fr 1fr" ]}
           alignItems="center"
           gap={5}
         >
@@ -194,15 +208,15 @@ console.log(menCount)
           })}
         </Box>
       </Box>
-      <Box>
-        <Box w="90%">
-          <Heading>Mens Wears</Heading>
+      <Box >
+        <Box ml={0} w="90%">
+          <Heading   >Mens Wears</Heading>
         </Box>
-        <Box
+        <Box 
           w="90%"
           margin="auto"
           display="grid"
-          gridTemplateColumns="repeat(5,1fr)"
+          gridTemplateColumns={["1fr", "1fr 1fr","1fr 1fr 1fr","1fr 1fr 1fr 1fr","1fr 1fr 1fr 1fr 1fr" ]}
           alignItems="center"
           gap={5}
         >
@@ -215,6 +229,7 @@ console.log(menCount)
         border="1px solid blue"
         bg= "blue"
         color= "white" 
+        m={3}
         _hover={{color: "white" }}
       >
         View more
@@ -230,7 +245,7 @@ console.log(menCount)
           w="90%"
           margin="auto"
           display="grid"
-          gridTemplateColumns="repeat(5,1fr)"
+          gridTemplateColumns={["1fr", "1fr 1fr","1fr 1fr 1fr","1fr 1fr 1fr 1fr","1fr 1fr 1fr 1fr 1fr" ]}
           alignItems="center"
           gap={5}
         >
@@ -243,6 +258,7 @@ console.log(menCount)
         border="1px solid blue"
         bg= "blue"
         color= "white" 
+       m={3}
         _hover={{color: "white" }}
       >
         View more
@@ -257,7 +273,7 @@ console.log(menCount)
           w="90%"
           margin="auto"
           display="grid"
-          gridTemplateColumns="repeat(5,1fr)"
+          gridTemplateColumns={["1fr", "1fr 1fr","1fr 1fr 1fr","1fr 1fr 1fr 1fr","1fr 1fr 1fr 1fr 1fr" ]}
           alignItems="center"
           gap={5}
         >
@@ -269,6 +285,7 @@ console.log(menCount)
         width="15%"
         border="1px solid blue"
         bg= "blue"
+        m={3}
         color= "white" 
         _hover={{color: "white" }}
       >
