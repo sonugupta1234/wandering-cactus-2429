@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MensProductCards from "../Components/MensProductCards";
 import { FaArrowUp } from "react-icons/fa";
 import { getMensData } from "../Redux/ProductReducer/action";
+import Navbar from "../Components/ShoppingCom/Navbar";
 const Mens = () => {
   const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
@@ -32,6 +33,8 @@ const Mens = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
+<>
+    <Navbar/>
     <Box
       display="grid"
       gridTemplateColumns={[
@@ -77,6 +80,7 @@ const Mens = () => {
         </Button>
       </Box>
     </Box>
+    </>
   );
 };
 

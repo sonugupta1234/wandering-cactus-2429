@@ -106,11 +106,13 @@ export const Navbar = () => {
           display={{ base: "none", md: "flex" }}
           justifyContent={{ md: "space-between" }}
         >
-          <Box>
+         <Link to="/shop">
+         <Box>
             <CiShoppingTag fontSize={"25px"} color="white" />
             <Text color="white">Shopping</Text>
           </Box>
-          {/* </Link> */}
+         </Link>
+       
 
           <Box>
             <SiHomeassistantcommunitystore fontSize={"25px"} color="white" />

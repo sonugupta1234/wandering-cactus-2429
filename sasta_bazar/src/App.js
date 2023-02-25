@@ -13,7 +13,7 @@ function App() {
       {/* <Womens /> */}
       {/* <MobileAccessories /> */}
        <MainRoutes />
-{/* <ShoppingPage/> */}
+     
     </div>
   );
 }

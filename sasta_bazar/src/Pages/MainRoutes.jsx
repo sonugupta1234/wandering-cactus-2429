@@ -13,6 +13,7 @@ import SingleMobileAccessoriesProductPage from "./SingleMobileAccessoriesProduct
 import Cart from "./Cart";
 
 import Womens from "./Womens";
+import ShopIndex from "../Components/ShoppingCom/ShopIndex";
 
 const MainRoutes = () => {
   return (
@@ -32,7 +33,7 @@ const MainRoutes = () => {
           element={<SingleMobileAccessoriesProductPage />}
         />
         <Route path="/cart" element={<Cart />} />
-
+        <Route path="/shop" element={<ShopIndex />} />
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
       </Routes>
     </div>
