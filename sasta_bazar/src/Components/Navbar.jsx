@@ -85,11 +85,14 @@ export const Navbar = () => {
 
        <Box width="30%" height="70px" mt={5}  display={{base: 'none',md: 'flex'}}  justifyContent={{md: 'space-between'}}>
         
+        <Link to="/shop">
         <Box>
+
+          
 
         <CiShoppingTag fontSize={"25px"} color="white"/>
         <Text color="white" >Shopping</Text>
-        </Box>
+        </Box></Link>
        {/* </Link> */}
 
         <Box>
@@ -237,8 +240,9 @@ export const Navbar = () => {
       </MenuButton> 
 
       <MenuList>
+        <Link to="/shop">
     <MenuItem> <CiShoppingTag />
-        <Text>Shopping</Text></MenuItem>
+        <Text>Shopping</Text></MenuItem></Link>
     <MenuItem><SiHomeassistantcommunitystore />
     <Text>Sell</Text>
     </MenuItem>
