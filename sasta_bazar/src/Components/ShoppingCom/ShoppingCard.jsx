@@ -17,14 +17,14 @@ const ShoppingCard = ({image,brands,price,title}) => {
       <Heading color="blue" size="sm">
         {price}
       </Heading>
-      <Button
+      {/* <Button
         width="100%"
         border="1px solid blue"
         bg="white"
         _hover={{ bg: "blue", color: "white" }}
       >
         Buy Now
-      </Button>
+      </Button> */}
     </Box>
   );
 }
