@@ -9,6 +9,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +18,7 @@ import { getMensData } from "../Redux/ProductReducer/action";
 import trustScore from "../Images/trustScore.png";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { postCartData } from "../Redux/CartReducer/action";
+import Navbar from "../Components/ShoppingCom/Navbar";
 const SignleMenProductPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -34,13 +36,21 @@ const SignleMenProductPage = () => {
     // console.log(newData, "s");
     newData && setData(newData);
   }, [id, mens_data]);
-  // console.log(data);
+  const toast = useToast();
   const handleCartAdd = () => {
     dispatch(postCartData(data));
-    console.log("ass");
+    toast({
+      position: "top",
+      title: "Item Added",
+      description: "You've added this item in Cart.",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
   };
   return (
     <Box>
+      <Navbar />
       <Breadcrumb
         spacing="10px"
         separator={<ChevronRightIcon color="gray.500" />}
@@ -51,6 +61,9 @@ const SignleMenProductPage = () => {
       >
         <BreadcrumbItem>
           <Link to="/">Home</Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <Link to="/shop">Shop</Link>
         </BreadcrumbItem>
 
         <BreadcrumbItem>
@@ -95,6 +108,7 @@ const SignleMenProductPage = () => {
               bg="#2a6462"
               color="white"
               _hover={{ bg: "blue", color: "white" }}
+              onClick={handleCartAdd}
             >
               Buy Now
             </Button>

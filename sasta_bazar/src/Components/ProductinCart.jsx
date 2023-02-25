@@ -4,24 +4,19 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const ProductinCart = ({
-  id,
-  title,
-  image,
-  price,
-  brand,
-  deletefunc,
-  handlecost,
-}) => {
+const ProductinCart = ({ id, title, image, price, deletefunc, handlecost }) => {
   const [quantity, setQuantity] = useState(1);
-  let sum = quantity * price;
+  price = price.trim().split(" ");
+  let newPrice = +price[1];
+
+  let sum = quantity * newPrice;
 
   const handledelete = () => {
     return deletefunc(id);
   };
 
   useEffect(() => {
-    return handlecost(sum);
+    handlecost(sum);
   }, [quantity]);
 
   return (
