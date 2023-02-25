@@ -52,6 +52,9 @@ const SignleMenProductPage = () => {
         <BreadcrumbItem>
           <Link to="/">Home</Link>
         </BreadcrumbItem>
+        <BreadcrumbItem>
+          <Link to="/shop">Shop</Link>
+        </BreadcrumbItem>
 
         <BreadcrumbItem>
           <Link to="/mens">Mens</Link>

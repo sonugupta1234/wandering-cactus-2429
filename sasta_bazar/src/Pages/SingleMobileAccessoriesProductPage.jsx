@@ -48,7 +48,9 @@ const SingleMobileAccessoriesProductPage = () => {
         <BreadcrumbItem>
           <Link to="/">Home</Link>
         </BreadcrumbItem>
-
+        <BreadcrumbItem>
+          <Link to="/shop">Shop</Link>
+        </BreadcrumbItem>
         <BreadcrumbItem>
           <Link to="/mobile">Mobile Accessories</Link>
         </BreadcrumbItem>
