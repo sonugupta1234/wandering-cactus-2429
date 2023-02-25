@@ -40,42 +40,54 @@ useEffect(()=>{
     {
       image: "https://shopping.imimg.com/style/ladies-wear.png",
       name: "Ladies wear",
+      link:"/womens"
+
     },
     {
       image: "https://shopping.imimg.com/style/men-wear.png",
       name: "Men Wear",
-    },
-    {
-      image: "https://shopping.imimg.com/style/footwear.png",
-      name: "Footwear",
-    },
-    {
-      image: "https://shopping.imimg.com/style/beauty-products.png",
-      name: "Beauty Products",
+      link:"/mens"
     },
     {
       image: "https://shopping.imimg.com/style/mobile-accessories.png",
       name: "Mobile Accessories",
+      link:"/mobile"
     },
+    {
+      image: "https://shopping.imimg.com/style/footwear.png",
+      name: "Footwear",
+      link:"/mens"
+    },
+    {
+      image: "https://shopping.imimg.com/style/beauty-products.png",
+      name: "Beauty Products",
+      link:"/mens"
+    },
+  
     {
       image: "https://shopping.imimg.com/style/home-decor.png",
       name: "Home Decore",
+      link:"/mens"
     },
     {
       image: "https://shopping.imimg.com/style/artificial-jewellery.png",
       name: "Artificial Jewellery",
+      link:"/mens"
     },
     {
       image: "https://shopping.imimg.com/style/fertilizer.png",
       name: "Fertilizer",
+      link:"/mens"
     },
     {
       image: "https://shopping.imimg.com/style/light.png",
       name: "Light",
+      link:"/mens"
     },
     {
       image: "https://shopping.imimg.com/style/industrial-chemicals.png",
       name: "Industrial Chemicals",
+      link:"/mens"
     },
   ];
 
@@ -125,7 +137,7 @@ useEffect(()=>{
       >
         {data.map((el, i) => {
           return (
-            <Link to="/mens">
+            <Link to={el.link}>
               <Flex
                 direction="column"
                 alignItems="center"

@@ -40,7 +40,7 @@ const Navbar = () => {
         <Button h={12} pl={6} pr={6}  bg="blue" color="white">
           Bulk Requirement
         </Button>
-    <Link to="###">
+    <Link to="/cart">
     <Box >
      <Flex alignItems="center" ml={3}>
      <Icon fontSize={'3rem'} as={AiOutlineShoppingCart}/>
