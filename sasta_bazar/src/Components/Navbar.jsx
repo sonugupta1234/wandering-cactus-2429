@@ -1,3 +1,21 @@
+
+import React, { useState } from 'react'
+import photo from "../Images/2019-02-17-removebg-preview.jpg"
+import {CiShoppingTag} from "react-icons/ci"
+import {SiHomeassistantcommunitystore} from "react-icons/si"
+import {FiHelpCircle} from "react-icons/fi"
+import {RiMessage2Line} from "react-icons/ri"
+import {IoMdContact} from "react-icons/io"
+import {RiArrowDropDownLine} from "react-icons/ri"
+import { useDispatch, useSelector } from 'react-redux'
+import { adddata,  logout } from '../Redux/AuthReducer/action'
+
+import { Link } from 'react-router-dom'
+
+import {RxHamburgerMenu} from "react-icons/rx"
+import {GrClose} from "react-icons/gr"
+import {Box,Text,Flex,Image,Modal,
+
 import React, { useState } from "react";
 import photo from "../Images/2019-02-17-removebg-preview.jpg";
 import { CiShoppingTag } from "react-icons/ci";
@@ -43,6 +61,30 @@ import { adddata } from "../Redux/AuthReducer/action";
 
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+  const dispatch=useDispatch()
+  const isAuth=useSelector((store)=>store.AuthReducer.isAuth)
+  console.log(isAuth)
+
+  const toast = useToast()
+
+  const { 
+    isOpen: isOpenMen, 
+    onOpen: onOpenMen, 
+    onClose: onCloseMen
+  } = useDisclosure()
+
+  const { 
+    isOpen: isOpenSign, 
+    onOpen: onOpenSign, 
+    onClose: onCloseSign
+  } = useDisclosure()
+
+
+  let newdata={
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -61,9 +103,20 @@ export const Navbar = () => {
   } = useDisclosure();
 
   let newdata = {
+
     email,
     password,
   };
+
+
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    dispatch(adddata(newdata))
+  }
+
+  const handlelogout=()=>{
+    dispatch(logout)
+  }
 
   const handleSubmit = () => {
     dispatch(adddata(newdata));
@@ -139,6 +192,135 @@ export const Navbar = () => {
             </Text>
           </Box>
         </Box>
+
+
+        <Box  cursor="pointer">
+        {/* onClick={onOpenSign} */}
+        {/* <IoMdContact fontSize={"25px"} color="white"/>
+        <Text color="white" >
+          <Flex>
+          Sign In 
+          <RiArrowDropDownLine />
+          </Flex>
+          </Text> */}
+           <Menu>
+              <MenuButton
+                as={Button}
+                rounded={'full'}
+                variant={'link'}
+                cursor={'pointer'}
+                minW={0}
+                >
+                
+                {isAuth ? 
+                <Flex>
+                  <Text fontSize={"20px"} color="white">Sonu</Text>
+                <RiArrowDropDownLine fontSize={"40px"} color="white"/>
+                </Flex>:
+                <Flex>
+                <IoMdContact fontSize={"40px"} color="white"/>
+                <RiArrowDropDownLine fontSize={"40px"}/>
+                </Flex>}
+              </MenuButton>
+              <MenuList minW="40%">
+                <MenuItem  onClick={onOpenSign}>Sign In</MenuItem>
+                <Link to="/login"><MenuItem isDisabled={isAuth==true}>Log In</MenuItem></Link>
+                <MenuItem>Admin</MenuItem>
+                <MenuItem isDisabled={isAuth==false} onClick={handlelogout} >Logout</MenuItem>
+              </MenuList>
+            </Menu>
+        </Box>
+        
+       </Box>
+       </Flex>
+
+
+
+
+
+
+       <Modal
+       
+       isOpen={isOpenSign}
+       onClose={onCloseSign}
+     >
+       <ModalOverlay />
+       <ModalContent>
+         <ModalHeader>Create your account</ModalHeader>
+         <ModalCloseButton />
+         <ModalBody pb={6}>
+          <form  onSubmit={handleSubmit} id="new-form">
+           <FormControl isRequired>
+             <FormLabel>First name</FormLabel>
+             <Input  placeholder='First name' />
+           </FormControl>
+
+           <FormControl mt={4} isRequired>
+             <FormLabel>Last name</FormLabel>
+             <Input placeholder='Last name' />
+           </FormControl>
+
+           <FormControl mt={4} isRequired>
+             <FormLabel>Mobile No</FormLabel>
+
+             <InputGroup >
+             <InputLeftAddon children={'+91'} />
+             <Input type="number" placeholder='Enter Mobile No' />
+             </InputGroup>
+           </FormControl>
+
+           <FormControl mt={4} isRequired>
+             <FormLabel>Email</FormLabel>
+             <Input placeholder='Email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+           </FormControl>
+
+           <FormControl mt={4} isRequired>
+             <FormLabel>Password</FormLabel>
+             <Input placeholder='password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+           </FormControl>
+           </form>
+         </ModalBody>
+
+         <ModalFooter>
+           <Button colorScheme='blue' mr={3} type="submit" form="new-form"  onClick={() =>
+       toast({
+         position: 'top-middle',
+         title: 'Account created.',
+         description: "We've created your account for you.",
+         status: 'success',
+         duration: 4000,
+         isClosable: true,
+       })
+     }  >
+             Submit
+           </Button>
+           <Button onClick={onCloseSign}>Cancel</Button>
+         </ModalFooter>
+        
+       </ModalContent>
+     </Modal>
+
+
+
+{isOpenMen ? (
+  <Box pb={4} display={{ md: 'none' }}>
+    <Stack as={'nav'} spacing={4}>
+    <Menu isOpen={isOpenMen}  >
+       <MenuButton
+
+         rounded={'full'}
+        variant={'link'}
+        cursor={'pointer'}
+        color="white"
+        border="none"
+        h="30px"
+        fontSize="md"
+        
+        minW={0}>
+        
+          
+        {/* <CiShoppingTag />
+
       </Flex>
 
       <Modal isOpen={isOpenSign} onClose={onCloseSign}>
@@ -226,6 +408,7 @@ export const Navbar = () => {
                 minW={0}
               >
                 {/* <CiShoppingTag />
+
         <Text>Shopping</Text> */}
               </MenuButton>
 

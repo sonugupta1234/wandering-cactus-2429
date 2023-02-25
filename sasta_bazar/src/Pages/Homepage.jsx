@@ -33,6 +33,29 @@ import { BiMessageDetail } from "react-icons/bi";
 
 export const Homepage = () => {
   return (
+
+     <Box>
+        <Navbar />
+        <Box h={{lg: "230px" , base: "470px"}} w={{lg: "100%", base: "50%"}} border="1px solid white"  backgroundImage="url('https://legacyscs.com/wp-content/uploads/2019/10/Warehouse-RFP-770x253.jpg')"
+       >
+        
+        
+          <Heading mt={20} color="white" filter="auto" brightness="100%">Search for products & find verified sellers near you</Heading>
+          <Box w={{lg: "80%", base: "90%"}} height="50px"   mt={10}  ml={{lg: "300px", base: "30px"}} >
+            <Flex direction={{lg: "row", base: "column"}}>
+            <Button height="50px" w={{lg: "15%", base: "75%"}} fontSize={'17px'} borderRadius="0px" >
+            <CiLocationOn />
+            <span>All India</span>
+            <RiArrowDropDownLine />
+          
+            </Button>
+            <Divider height="50px" display={{base: "none"}} orientation='vertical'/>
+            
+            <Input  height="50px" filter="auto" brightness="100%" borderRadius="0px" w={{lg: "40%", base: "75%"}}  variant='filled' onChange={{backgroundColor: "white"}} placeholder='Enter product/service name'/>
+            
+            <Button height="50px" borderRadius="0px" w={{lg: "10%", base: "75%"}} color="white" backgroundColor={"#048277"} _hover={{backgroundColor: "#048277"}}>
+             < BsSearch />
+
     <Box>
       <Navbar />
       <Box
@@ -83,6 +106,7 @@ export const Homepage = () => {
               _hover={{ backgroundColor: "#048277" }}
             >
               <BsSearch />
+
               Search
             </Button>
           </Flex>
@@ -90,6 +114,134 @@ export const Homepage = () => {
       </Box>
 
       <Box width="100%" mt={6}>
+
+        <Flex direction={{lg: "row", base: "column"}}>
+          <Box width="30%" ml={{base: "40px"}}>
+           <Heading mt={{lg: "10px", base: "5px"}}>
+           We connect
+            Buyers & Sellers
+           </Heading>
+           <Text mt={6}>IndiaMART is India's largest online B2B marketplace, connecting buyers with suppliers.</Text>
+          
+          <Box mt={10}>
+            <Flex justifyContent={'space-between'} direction={{lg: "row", base: "column"}}>
+            <Box >
+             < SiTrustpilot color="blue" fontSize={'30px'} />
+              Trusted Platform
+            </Box>
+
+            <Box>
+             <VscWorkspaceTrusted color="blue" fontSize={'30px'}/>
+              Safe & Secure
+              </Box>
+
+             <Box> 
+              <BiMessageDetail color="blue" fontSize={'30px'}/>
+              Quick Assistance
+              </Box>
+            </Flex>
+          </Box>
+          </Box>
+          <Box w={{lg: "70%", base: "35%"}} >
+          <Carousel />
+          </Box>
+        </Flex>
+      </Box>
+
+      <Heading textAlign={{lg: "left", base: "center"}} w={{base: "50%"}} mt={6}>Building Construction Material & Equipment</Heading>
+
+
+      <Box width="100%" mt={8}>
+        <Flex direction={{lg: "row", base: "column"}}>
+        <Box w={{lg: "30%", base: "50%"}} height="400px" border="1px solid white" backgroundImage="url('https://i0.wp.com/wnainc.com/wp-content/uploads/2017/01/mechanical-drawing-e1484917722138-1.jpg?w=973&ssl=1')">
+         <Box mt={{lg: "250px", base: "200px"}} >
+          <Text color="white">Prefabricated Houses</Text>
+          <Text color="white">Scaffolding Planks & Plates</Text>
+          <Text color="white">Construction Machines</Text>
+          <Text color="white">Crushing Machines & Plants</Text>
+          <Button>View All</Button>
+         </Box>
+        </Box>
+
+        <Box width={{lg: "70%", base: "50%"}}>
+          <Grid templateColumns={{lg: 'repeat(3, 1fr)', base: 'repeat(2,1fr)'}} gap={4}>
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}} >
+              <Image  src="https://3.imimg.com/data3/RS/UH/GLADMIN-5385/brick-making-machines-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>Brick Making Machines</Text>
+               <Text>Fly Ash Brick Making Machine</Text>
+               <Text>Clay Brick Making Machine</Text>
+               <Text>Cement Brick Making Machine</Text>
+              </Box>
+            </Flex>
+           </GridItem>
+
+          
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
+              <Image src="https://3.imimg.com/data3/OI/XL/GLADMIN-34562/passenger-lifts-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>Passenger Lifts</Text>
+               <Text>Residential Elevator</Text>
+               <Text>Kone Passenger lift</Text>
+               <Text>Stair Lift</Text>
+              </Box>
+            </Flex>
+           </GridItem>
+
+
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
+              <Image src="https://3.imimg.com/data3/KS/JQ/GLADMIN-2475/tmt-bars-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>TMT Bars</Text>
+               <Text>TMT Steel Bars</Text>
+               <Text>TATA TMT Bars</Text>
+               <Text>Kamdhenu TMT Bars</Text>
+              </Box>
+            </Flex>
+           </GridItem>
+
+
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
+              <Image src="https://5.imimg.com/data5/QO/YD/GLADMIN-2/plywoods-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>Plywoods</Text>
+               <Text>Shuttering Plywood</Text>
+               <Text>Laminated Plywood</Text>
+               <Text>Waterproof Plywood</Text>
+              </Box>
+            </Flex>
+           </GridItem>
+
+
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
+              <Image src="https://3.imimg.com/data3/JE/DA/MY-2/hydraulic-excavator-500x500-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>Excavator</Text>
+               <Text>Hitachi Excavator</Text>
+               <Text>Hyundai Excavator</Text>
+               <Text>Komatsu Excavator</Text>
+              </Box>
+
         <Flex
           justifyContent={"space-between"}
           direction={{ lg: "row", base: "column" }}
@@ -101,31 +253,91 @@ export const Homepage = () => {
             </Flex>
           </Box>
 
+
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
+              <Image src="https://3.imimg.com/data3/VG/QG/GLADMIN-27799/emulsion-paints-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>Emulsion Paints</Text>
+               <Text>Asian Emulsion Paints</Text>
+               <Text>Berger Emulsion Paints</Text>
+               <Text>Nerolac Emulsion Paints</Text>
+              </Box>
+
           <Box>
             <Flex>
               <GiDrill fontSize={"30px"} />
               Electronics & Electrical
+
             </Flex>
           </Box>
+
+
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
+              <Image src="https://3.imimg.com/data3/UT/PB/GLADMIN-12558/wood-door-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>Wooden Door</Text>
+               <Text>Designer Wooden Door</Text>
+               <Text>Plywood Door</Text>
+               <Text>Wooden Flush Doors</Text>
+              </Box>
 
           <Box>
             <Flex>
               <MdLocalPharmacy fontSize={"30px"} />
               Drugs & Pharma
+
             </Flex>
           </Box>
+
+
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
+              <Image src="https://3.imimg.com/data3/VN/LA/GLADMIN-2047/pvc-pipes-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>PVC Pipes</Text>
+               <Text>Finolex Pipes</Text>
+               <Text>Rigid PVC Pipes</Text>
+               <Text>Flexible PVC Pipes</Text>
+              </Box>
 
           <Box>
             <Flex>
               <FaIndustry fontSize={"30px"} />
               Industrial Machinery
+
             </Flex>
           </Box>
+
+
+           <GridItem boxShadow={'2xl'}>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box  width={{base: "100%"}}>
+              <Image src="https://3.imimg.com/data3/YD/WE/GLADMIN-23639/building-brick-125x125.jpg" alt=""/>
+              </Box>
+
+              <Box>
+               <Text fontWeight={'bold'}>Building Brick</Text>
+               <Text>Red Brick</Text>
+               <Text>Fly Ash Bricks</Text>
+               <Text>Cement Brick</Text>
+              </Box>
 
           <Box>
             <Flex>
               <MdFastfood fontSize={"30px"} />
               Food and Agriculture
+
             </Flex>
           </Box>
         </Flex>
