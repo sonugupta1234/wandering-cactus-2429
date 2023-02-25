@@ -8,6 +8,7 @@ import {
   Button,
   Breadcrumb,
   BreadcrumbItem,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +16,8 @@ import { Link, useParams } from "react-router-dom";
 import { getMensData } from "../Redux/ProductReducer/action";
 import trustScore from "../Images/trustScore.png";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { postCartData } from "../Redux/CartReducer/action";
+import Navbar from "../Components/ShoppingCom/Navbar";
 
 const SignleWomenProductPage = () => {
   const { id } = useParams();
@@ -33,9 +36,22 @@ const SignleWomenProductPage = () => {
     // console.log(newData, "s");
     newData && setData(newData);
   }, [id, womens_data]);
-  // console.log(data);
+
+  const toast = useToast();
+  const handleCartAdd = () => {
+    dispatch(postCartData(data));
+    toast({
+      position: "top",
+      title: "Item Added",
+      description: "You've added this item in Cart.",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+  };
   return (
     <Box>
+      <Navbar />
       <Breadcrumb
         spacing="10px"
         separator={<ChevronRightIcon color="gray.500" />}
@@ -83,6 +99,7 @@ const SignleWomenProductPage = () => {
               w="40%"
               border="1px solid blue"
               _hover={{ bg: "blue", color: "white" }}
+              onClick={handleCartAdd}
             >
               Add to Cart
             </Button>
@@ -91,6 +108,7 @@ const SignleWomenProductPage = () => {
               bg="#2a6462"
               color="white"
               _hover={{ bg: "blue", color: "white" }}
+              onClick={handleCartAdd}
             >
               Buy Now
             </Button>
