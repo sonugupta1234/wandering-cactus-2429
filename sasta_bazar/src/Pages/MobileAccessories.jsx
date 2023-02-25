@@ -5,6 +5,7 @@ import MobileAccessoriesCards from "../Components/MobileAccessoriesCards";
 import { getMobileData } from "../Redux/ProductReducer/action";
 import { FaArrowUp } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import Navbar from "../Components/ShoppingCom/Navbar";
 
 //
 const MobileAccessories = () => {
@@ -33,6 +34,9 @@ const MobileAccessories = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
+    <>
+    <Navbar/>
+    
     <Box
       display="grid"
       gridTemplateColumns={[
@@ -78,6 +82,7 @@ const MobileAccessories = () => {
         </Button>
       </Box>
     </Box>
+    </>
   );
 };
 
