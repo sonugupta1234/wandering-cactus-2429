@@ -6,8 +6,8 @@ import {FiHelpCircle} from "react-icons/fi"
 import {RiMessage2Line} from "react-icons/ri"
 import {IoMdContact} from "react-icons/io"
 import {RiArrowDropDownLine} from "react-icons/ri"
-import { useDispatch } from 'react-redux'
-import { adddata } from '../Redux/AuthReducer/action'
+import { useDispatch, useSelector } from 'react-redux'
+import { adddata,  logout } from '../Redux/AuthReducer/action'
 
 import { Link } from 'react-router-dom'
 
@@ -27,6 +27,8 @@ export const Navbar = () => {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const dispatch=useDispatch()
+  const isAuth=useSelector((store)=>store.AuthReducer.isAuth)
+  console.log(isAuth)
 
   const toast = useToast()
 
@@ -51,6 +53,10 @@ export const Navbar = () => {
   const handleSubmit=(e)=>{
     e.preventDefault()
     dispatch(adddata(newdata))
+  }
+
+  const handlelogout=()=>{
+    dispatch(logout)
   }
   return (
     
@@ -101,14 +107,41 @@ export const Navbar = () => {
         <Text color="white" >Messages</Text>
         </Box>
 
-        <Box onClick={onOpenSign} cursor="pointer">
-        <IoMdContact fontSize={"25px"} color="white"/>
+        <Box  cursor="pointer">
+        {/* onClick={onOpenSign} */}
+        {/* <IoMdContact fontSize={"25px"} color="white"/>
         <Text color="white" >
           <Flex>
           Sign In 
           <RiArrowDropDownLine />
           </Flex>
-          </Text>
+          </Text> */}
+           <Menu>
+              <MenuButton
+                as={Button}
+                rounded={'full'}
+                variant={'link'}
+                cursor={'pointer'}
+                minW={0}
+                >
+                
+                {isAuth ? 
+                <Flex>
+                  <Text fontSize={"20px"} color="white">Sonu</Text>
+                <RiArrowDropDownLine fontSize={"40px"} color="white"/>
+                </Flex>:
+                <Flex>
+                <IoMdContact fontSize={"40px"} color="white"/>
+                <RiArrowDropDownLine fontSize={"40px"}/>
+                </Flex>}
+              </MenuButton>
+              <MenuList minW="40%">
+                <MenuItem  onClick={onOpenSign}>Sign In</MenuItem>
+                <Link to="/login"><MenuItem isDisabled={isAuth==true}>Log In</MenuItem></Link>
+                <MenuItem>Admin</MenuItem>
+                <MenuItem isDisabled={isAuth==false} onClick={handlelogout} >Logout</MenuItem>
+              </MenuList>
+            </Menu>
         </Box>
         
        </Box>
@@ -168,7 +201,7 @@ export const Navbar = () => {
          title: 'Account created.',
          description: "We've created your account for you.",
          status: 'success',
-         duration: 9000,
+         duration: 4000,
          isClosable: true,
        })
      }  >

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {  authstatus, getdata } from '../Redux/AuthReducer/action'
+import { Navbar } from './Navbar'
 
 export const Login = () => {
 
@@ -30,7 +31,7 @@ export const Login = () => {
             description: "Logged In as Sonu Gupta",
             position: 'top',
             status: 'success',
-            duration: 9000,
+            duration: 5000,
             isClosable: true,
           })
           dispatch(authstatus) .then(()=>{
@@ -42,7 +43,7 @@ export const Login = () => {
                 title: 'Invalid User',
                 position: 'top',
                 status: 'error',
-                duration: 9000,
+                duration: 5000,
                 isClosable: true,
               })
         }
@@ -53,7 +54,11 @@ export const Login = () => {
         dispatch(getdata)
     },[])
   return (
-    <div style={{marginTop: "80px"}}>
+    < >
+        
+        <Navbar />
+        
+        <div style={{ width: "100%",marginTop: "150px", zIndex: "1", position: "fixed"}}>
         <h1>Login Form</h1>
         <form onSubmit={handleSubmit}>
           <label>Email </label>
@@ -62,8 +67,9 @@ export const Login = () => {
           <input type="password" style={{width: "30%", height: "30px", marginTop: "12px"}} placeholder='password' onChange={(e)=>setPassword(e.target.value)}/><br/>
           <button type="submit" style={{backgroundColor: "teal", marginTop: "10px"}}>Submit</button>
         </form>
+        </div>
         
 
-    </div>
+    </>
   )
 }

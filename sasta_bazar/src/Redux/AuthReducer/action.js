@@ -1,4 +1,4 @@
-import { GET_DATA_ERROR, GET_DATA_REQUEST, GET_DATA_SUCCESS, POST_DATA_ERROR, POST_DATA_REQUEST, POST_DATA_SUCCESS, SET_AUTH_DATA } from "./actionType"
+import { GET_DATA_ERROR, GET_DATA_REQUEST, GET_DATA_SUCCESS, POST_DATA_ERROR, POST_DATA_REQUEST, POST_DATA_SUCCESS, SET_AUTH_DATA, SET_LOGOUT } from "./actionType"
 import axios from "axios"
 
 export const getdatarequest=()=>{
@@ -29,6 +29,10 @@ export const getauthstatus=()=>{
     return {type: SET_AUTH_DATA}
 }
 
+export const gologout=()=>{
+    return {type: SET_LOGOUT }
+}
+
 
 export const adddata=(newdata)=>async(dispatch)=>{
     dispatch(postdatarequest())
@@ -47,4 +51,8 @@ export const getdata=async(dispatch)=>{
 
 export const authstatus=(dispatch)=>{
     dispatch(getauthstatus())
+}
+
+export const logout=(dispatch)=>{
+    dispatch(gologout())
 }

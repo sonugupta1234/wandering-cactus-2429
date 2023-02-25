@@ -18,7 +18,7 @@ export const Homepage = () => {
   return (
      <Box>
         <Navbar />
-        <Box h={{lg: "230px" , base: "470px"}} w={{lg: "100%", base: "35%"}} border="1px solid white"  backgroundImage="url('https://legacyscs.com/wp-content/uploads/2019/10/Warehouse-RFP-770x253.jpg')"
+        <Box h={{lg: "230px" , base: "470px"}} w={{lg: "100%", base: "50%"}} border="1px solid white"  backgroundImage="url('https://legacyscs.com/wp-content/uploads/2019/10/Warehouse-RFP-770x253.jpg')"
        >
         
         
@@ -31,7 +31,7 @@ export const Homepage = () => {
             <RiArrowDropDownLine />
           
             </Button>
-            <Divider height="50px" orientation='vertical'/>
+            <Divider height="50px" display={{base: "none"}} orientation='vertical'/>
             
             <Input  height="50px" filter="auto" brightness="100%" borderRadius="0px" w={{lg: "40%", base: "75%"}}  variant='filled' onChange={{backgroundColor: "white"}} placeholder='Enter product/service name'/>
             
@@ -86,7 +86,7 @@ export const Homepage = () => {
 
       <Box width="100%" mt={6}>
         <Flex direction={{lg: "row", base: "column"}}>
-          <Box width="30%" >
+          <Box width="30%" ml={{base: "40px"}}>
            <Heading mt={{lg: "10px", base: "5px"}}>
            We connect
             Buyers & Sellers
@@ -118,13 +118,13 @@ export const Homepage = () => {
         </Flex>
       </Box>
 
-      <Heading textAlign={'left'} mt={6}>Building Construction Material & Equipment</Heading>
+      <Heading textAlign={{lg: "left", base: "center"}} w={{base: "50%"}} mt={6}>Building Construction Material & Equipment</Heading>
 
 
       <Box width="100%" mt={8}>
-        <Flex>
-        <Box width="30%" height="400px" border="1px solid white" backgroundImage="url('https://i0.wp.com/wnainc.com/wp-content/uploads/2017/01/mechanical-drawing-e1484917722138-1.jpg?w=973&ssl=1')">
-         <Box mt={250} >
+        <Flex direction={{lg: "row", base: "column"}}>
+        <Box w={{lg: "30%", base: "50%"}} height="400px" border="1px solid white" backgroundImage="url('https://i0.wp.com/wnainc.com/wp-content/uploads/2017/01/mechanical-drawing-e1484917722138-1.jpg?w=973&ssl=1')">
+         <Box mt={{lg: "250px", base: "200px"}} >
           <Text color="white">Prefabricated Houses</Text>
           <Text color="white">Scaffolding Planks & Plates</Text>
           <Text color="white">Construction Machines</Text>
@@ -133,12 +133,12 @@ export const Homepage = () => {
          </Box>
         </Box>
 
-        <Box width="70%">
-          <Grid templateColumns='repeat(3, 1fr)' gap={4}>
+        <Box width={{lg: "70%", base: "50%"}}>
+          <Grid templateColumns={{lg: 'repeat(3, 1fr)', base: 'repeat(2,1fr)'}} gap={4}>
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
-              <Image src="https://3.imimg.com/data3/RS/UH/GLADMIN-5385/brick-making-machines-125x125.jpg" alt=""/>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}} >
+              <Image  src="https://3.imimg.com/data3/RS/UH/GLADMIN-5385/brick-making-machines-125x125.jpg" alt=""/>
               </Box>
 
               <Box>
@@ -152,8 +152,8 @@ export const Homepage = () => {
 
           
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
               <Image src="https://3.imimg.com/data3/OI/XL/GLADMIN-34562/passenger-lifts-125x125.jpg" alt=""/>
               </Box>
 
@@ -168,8 +168,8 @@ export const Homepage = () => {
 
 
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
               <Image src="https://3.imimg.com/data3/KS/JQ/GLADMIN-2475/tmt-bars-125x125.jpg" alt=""/>
               </Box>
 
@@ -184,8 +184,8 @@ export const Homepage = () => {
 
 
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
               <Image src="https://5.imimg.com/data5/QO/YD/GLADMIN-2/plywoods-125x125.jpg" alt=""/>
               </Box>
 
@@ -200,8 +200,8 @@ export const Homepage = () => {
 
 
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
               <Image src="https://3.imimg.com/data3/JE/DA/MY-2/hydraulic-excavator-500x500-125x125.jpg" alt=""/>
               </Box>
 
@@ -216,8 +216,8 @@ export const Homepage = () => {
 
 
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
               <Image src="https://3.imimg.com/data3/VG/QG/GLADMIN-27799/emulsion-paints-125x125.jpg" alt=""/>
               </Box>
 
@@ -233,8 +233,8 @@ export const Homepage = () => {
 
 
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
               <Image src="https://3.imimg.com/data3/UT/PB/GLADMIN-12558/wood-door-125x125.jpg" alt=""/>
               </Box>
 
@@ -250,8 +250,8 @@ export const Homepage = () => {
 
 
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box width={{base: "100%"}}>
               <Image src="https://3.imimg.com/data3/VN/LA/GLADMIN-2047/pvc-pipes-125x125.jpg" alt=""/>
               </Box>
 
@@ -266,8 +266,8 @@ export const Homepage = () => {
 
 
            <GridItem boxShadow={'2xl'}>
-            <Flex>
-              <Box>
+            <Flex direction={{lg: "row", base: "column"}}>
+              <Box  width={{base: "100%"}}>
               <Image src="https://3.imimg.com/data3/YD/WE/GLADMIN-23639/building-brick-125x125.jpg" alt=""/>
               </Box>
 

@@ -1,4 +1,4 @@
-import { GET_DATA_ERROR, GET_DATA_REQUEST, GET_DATA_SUCCESS, POST_DATA_ERROR, POST_DATA_REQUEST, POST_DATA_SUCCESS, SET_AUTH_DATA } from "./actionType"
+import { GET_DATA_ERROR, GET_DATA_REQUEST, GET_DATA_SUCCESS, POST_DATA_ERROR, POST_DATA_REQUEST, POST_DATA_SUCCESS, SET_AUTH_DATA, SET_LOGOUT } from "./actionType"
 
 
 
@@ -33,6 +33,9 @@ export const reducer=(state=initialState, {type,payload})=>{
 
             case POST_DATA_ERROR:
                 return {...state,isError: true}
+
+            case SET_LOGOUT:
+                return {...state,isAuth: false}
 
             default:
                 return state;
