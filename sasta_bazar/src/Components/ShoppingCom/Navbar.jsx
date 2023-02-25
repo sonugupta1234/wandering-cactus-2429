@@ -15,7 +15,6 @@ import {
   Icon
 } from "@chakra-ui/react";
 import {Link} from "react-router-dom"
-import photo from "../../Images/download-removebg-preview.jpg";
 import { BsSearch } from "react-icons/bs";
 import ShoppingCard from "./ShoppingCard";
 import { store } from "../../Redux/store";

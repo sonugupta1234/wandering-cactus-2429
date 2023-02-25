@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import photo from "../Images/2019-02-17-removebg-preview.jpg"
 import {CiShoppingTag} from "react-icons/ci"
 import {SiHomeassistantcommunitystore} from "react-icons/si"
@@ -22,6 +22,8 @@ import {Box,Text,Flex,Image,Modal,
 
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
 
   const toast = useToast()
 
@@ -36,6 +38,16 @@ export const Navbar = () => {
     onOpen: onOpenSign, 
     onClose: onCloseSign
   } = useDisclosure()
+
+
+  let newdata={
+    email,
+    password
+  }
+
+  const handleSubmit=()=>{
+    dispatch(adddata(newdata))
+  }
   return (
     
      <Box w={{lg: "100%", base: "28%"}}  h={{lg: "80px", base: "50px"}} backgroundColor={'#2E3192'} position={'fixed'} zIndex={1}>
@@ -45,10 +57,9 @@ export const Navbar = () => {
        </Box>
 
 
-       <Box width="30%" height="70px" mt={5} >
+       {/* <Box width="30%" height="70px" mt={5} >
         <Flex justifyContent={'space-between'}>
-       <Link to="/shoping">
-       <Box>
+       </Box> */}
 
        
        <IconButton
@@ -69,7 +80,7 @@ export const Navbar = () => {
         <CiShoppingTag fontSize={"25px"} color="white"/>
         <Text color="white" >Shopping</Text>
         </Box>
-       </Link>
+       {/* </Link> */}
 
         <Box>
         <SiHomeassistantcommunitystore fontSize={"25px"} color="white"/>
@@ -114,6 +125,7 @@ export const Navbar = () => {
          <ModalHeader>Create your account</ModalHeader>
          <ModalCloseButton />
          <ModalBody pb={6}>
+          <form id="for" onSubmit={handleSubmit}>
            <FormControl isRequired>
              <FormLabel>First name</FormLabel>
              <Input  placeholder='First name' />
@@ -135,13 +147,14 @@ export const Navbar = () => {
 
            <FormControl mt={4} isRequired>
              <FormLabel>Email</FormLabel>
-             <Input placeholder='Email' />
+             <Input placeholder='Email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
            </FormControl>
 
            <FormControl mt={4} isRequired>
              <FormLabel>Password</FormLabel>
-             <Input placeholder='password' />
+             <Input placeholder='password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
            </FormControl>
+           </form>
          </ModalBody>
 
          <ModalFooter>
@@ -154,7 +167,7 @@ export const Navbar = () => {
          duration: 9000,
          isClosable: true,
        })
-     }>
+     } type="submit" id="for">
              Submit
            </Button>
            <Button onClick={onCloseSign}>Cancel</Button>

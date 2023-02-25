@@ -5,7 +5,7 @@ import {RiArrowDropDownLine} from "react-icons/ri"
 import {BsSearch} from "react-icons/bs"
 import {BiBuildings} from "react-icons/bi"
 import { GiDrill} from "react-icons/gi"
-import {Box,Heading,Button,Input,Flex,Text, GridItem, Grid,Image, InputGroup, InputLeftAddon, Tabs, TabPanels, TabPanel} from "@chakra-ui/react"
+import {Box,Heading,Button,Input,Flex,Text, GridItem, Grid,Image, InputGroup, InputLeftAddon, Tabs, TabPanels, TabPanel, Divider} from "@chakra-ui/react"
 import {MdLocalPharmacy } from "react-icons/md"
 import {FaIndustry} from "react-icons/fa"
 import { MdFastfood} from "react-icons/md"
@@ -29,8 +29,9 @@ export const Homepage = () => {
             <CiLocationOn />
             <span>All India</span>
             <RiArrowDropDownLine />
+          
             </Button>
-            
+            <Divider height="50px" orientation='vertical'/>
             
             <Input  height="50px" filter="auto" brightness="100%" borderRadius="0px" w={{lg: "40%", base: "75%"}}  variant='filled' onChange={{backgroundColor: "white"}} placeholder='Enter product/service name'/>
             

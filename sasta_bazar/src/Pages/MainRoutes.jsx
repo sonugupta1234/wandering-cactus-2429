@@ -5,7 +5,7 @@ import Mens from "./Mens";
 import MobileAccessories from "./MobileAccessories";
 
 import ShoppingPage from "./Shopping/ShoppingPage";
-import SignleProductPage from "./SignleProductPage";
+// import SignleProductPage from "./SignleProductPage";
 
 import SignleMenProductPage from "./SignleMenProductPage";
 import SignleWomenProductPage from "./SignleWomenProductPage";
@@ -25,7 +25,7 @@ const MainRoutes = () => {
         <Route path="/womens/:id" element={<SignleWomenProductPage />} />
         <Route path="/mobile" element={<MobileAccessories />} />
 
-        <Route path="/mobile/:id" element={<SignleProductPage />} />
+        {/* <Route path="/mobile/:id" element={<SignleProductPage />} /> */}
 
         <Route
           path="/mobile/:id"

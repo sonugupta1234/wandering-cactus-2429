@@ -8,7 +8,7 @@ import ShoppingPage from "./Pages/Shopping/ShoppingPage";
 function App() {
   return (
     <div className="App">
-      <Homepage />
+  
       {/* <Mens /> */}
       {/* <Womens /> */}
       {/* <MobileAccessories /> */}
