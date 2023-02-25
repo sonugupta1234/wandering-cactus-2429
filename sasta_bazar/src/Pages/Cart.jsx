@@ -1,34 +1,29 @@
 import { Box, Button, Text } from "@chakra-ui/react";
-import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProductinCart from "../Components/ProductinCart";
 import { deleteCartData } from "../Redux/CartReducer/action";
-// import { useParams } from 'react-router-dom';
-
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [totalcost, setTotalcost] = useState(0);
   let newSum = 0;
   const cart = useSelector((store) => {
-    // console.log(store.CartReducer.cart);
     return store.CartReducer.cart;
   });
 
   const deletefunc = (id) => {
     let carthai = cart.filter((el) => el.id !== id);
     dispatch(deleteCartData(carthai));
-    // console.log(cart);
   };
 
   const handlecost = (sum) => {
     newSum += sum;
     setTotalcost(newSum);
   };
-
+  // console.log(totalcost, "cost");
   if (cart.length == 0) {
     return (
       <Box>
@@ -47,7 +42,7 @@ const Cart = () => {
   return (
     <Box pr={8} pl={8}>
       <Text ml="40px" fontSize="3xl" as="b">
-        My Cart
+        My Cart 😊
       </Text>
       <hr />
       <Text fontSize="lg" as="i">
@@ -78,13 +73,13 @@ const Cart = () => {
             color: "white",
             width: "150px",
             height: "50px",
-            backgroundColor: "#ff7856",
+            backgroundColor: "#2e3192",
             borderRadius: "10px",
-            fontSize: "18px",
+            fontSize: "20px",
           }}
           // onClick={() => navigate("/cart/payment")}
         >
-          Place Order
+          Place Order😊
         </button>
       </Box>
     </Box>

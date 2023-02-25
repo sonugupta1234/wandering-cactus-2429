@@ -26,7 +26,7 @@ const MobileAccessoriesCards = ({ brands, image, title, price, id }) => {
         />
       </Link>
       <Box h="45px" overflow="hidden">
-        <Text te>{title}</Text>
+        <Text>{title}</Text>
       </Box>
       <Box h="20px" overflow="hidden">
         <Text fontSize="md" color="gray">
