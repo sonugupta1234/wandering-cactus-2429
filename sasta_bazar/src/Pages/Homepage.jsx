@@ -891,9 +891,24 @@ Contract Logistics Service</Text>
 </Tabs>
 </Box>
 
-<Box>Copyright © 1996-2023 IndiaMART InterMESH Ltd. All rights reserved.</Box>
-
-
+<Flex
+        direction={["column", "column", "row"]}
+        color="gray"
+        bg="#232324"
+        justifyContent="space-between"
+        alignItems="center"
+        h="80px"
+        mt="10"
+      >
+        <Box ml="5">Copyright © 1996-2023 IndiaMART. All rights reserved.</Box>
+        <HStack mr="5" gap="5">
+          <Box>Home </Box>
+          <Box> Sell on IndiaMART</Box>
+          <Box>FAQ</Box>
+          <Box>Terms of Use</Box>
+          <Box> Privacy Policy</Box>
+        </HStack>
+      </Flex>
    </Box>
   )
 }
