@@ -6,6 +6,8 @@ import {FiHelpCircle} from "react-icons/fi"
 import {RiMessage2Line} from "react-icons/ri"
 import {IoMdContact} from "react-icons/io"
 import {RiArrowDropDownLine} from "react-icons/ri"
+import { useDispatch } from 'react-redux'
+import { adddata } from '../Redux/AuthReducer/action'
 
 import { Link } from 'react-router-dom'
 
@@ -24,6 +26,7 @@ export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const dispatch=useDispatch()
 
   const toast = useToast()
 
@@ -45,7 +48,8 @@ export const Navbar = () => {
     password
   }
 
-  const handleSubmit=()=>{
+  const handleSubmit=(e)=>{
+    e.preventDefault()
     dispatch(adddata(newdata))
   }
   return (
@@ -125,7 +129,7 @@ export const Navbar = () => {
          <ModalHeader>Create your account</ModalHeader>
          <ModalCloseButton />
          <ModalBody pb={6}>
-          <form id="for" onSubmit={handleSubmit}>
+          <form  onSubmit={handleSubmit} id="new-form">
            <FormControl isRequired>
              <FormLabel>First name</FormLabel>
              <Input  placeholder='First name' />
@@ -158,7 +162,7 @@ export const Navbar = () => {
          </ModalBody>
 
          <ModalFooter>
-           <Button colorScheme='blue' mr={3} onClick={() =>
+           <Button colorScheme='blue' mr={3} type="submit" form="new-form"  onClick={() =>
        toast({
          position: 'top-middle',
          title: 'Account created.',
@@ -167,11 +171,12 @@ export const Navbar = () => {
          duration: 9000,
          isClosable: true,
        })
-     } type="submit" id="for">
+     }  >
              Submit
            </Button>
            <Button onClick={onCloseSign}>Cancel</Button>
          </ModalFooter>
+        
        </ModalContent>
      </Modal>
 

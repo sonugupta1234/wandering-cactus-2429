@@ -13,6 +13,7 @@ import SingleMobileAccessoriesProductPage from "./SingleMobileAccessoriesProduct
 import Cart from "./Cart";
 
 import Womens from "./Womens";
+import { Login } from "../Components/Login";
 
 const MainRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const MainRoutes = () => {
         <Route path="/womens" element={<Womens />} />
         <Route path="/womens/:id" element={<SignleWomenProductPage />} />
         <Route path="/mobile" element={<MobileAccessories />} />
+        <Route path="/login" element={<Login />} />
 
         {/* <Route path="/mobile/:id" element={<SignleProductPage />} /> */}
 
