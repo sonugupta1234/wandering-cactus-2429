@@ -26,12 +26,14 @@ const Navbar = () => {
         direction={["column", "row", "row"]}
         alignItems="center"
       >
-        <Image
-          pr={10}
-          width="auto"
-          h={12}
-          src="https://shopping.imimg.com/style/im_logo.jpg"
-        ></Image>
+        <Link to="/shop">
+          <Image
+            pr={10}
+            width="auto"
+            h={12}
+            src="https://shopping.imimg.com/style/im_logo.jpg"
+          ></Image>
+        </Link>
         <InputGroup pl={10} pr={10} size="md">
           <InputLeftAddon h={12} bg="white" children="Shop" />
           <Input h={12} placeholder="what are you looking for" />

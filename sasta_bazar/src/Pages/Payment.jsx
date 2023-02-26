@@ -9,60 +9,35 @@ import {
   useDisclosure,
   Alert,
   AlertIcon,
+  HStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-
-export const PaymentNav = styled.div`
-  height: 70px;
-  width: 76%;
-  background: #ff7856;
-  display: flex;
-  justify-content: space-between;
-  padding: 2px;
-  padding-top: 15px;
-  margin-left: 7.5rem;
-  border-radius: 10px;
-`;
+import Navbar from "../Components/ShoppingCom/Navbar";
 
 const Payment = () => {
   const [flag, setFlag] = useState(false);
   const [check, setCheck] = useState(false);
-  console.log(check);
+  const [totalcost, setTotalcost] = useState(0);
 
   const navigate = useNavigate();
 
   const handleproceed = () => {
-    setTimeout(() => {
-      navigate("/cart/payment/success");
-    }, 2000);
+    alert("Purchase Sucessful");
+    navigate("/shop");
   };
-
+  const cart = useSelector((store) => {
+    return store.CartReducer.cart;
+  });
+  useEffect(() => {
+    cart && cart.map((e) => setTotalcost((prev) => prev + e.price));
+  }, []);
+  // console.log(totalcost);
   return (
     <>
+      <Navbar />
       <Box height={"auto"} bg={"#F3F7FB"}>
-        <PaymentNav>
-          <Text fontWeight={500} fontSize={"x-large"} pl={5} color={"white"}>
-            Payment Details
-          </Text>
-          <Box mr={8} mt={2} color={"white"} display={"flex"} gap={8}>
-            <Box>
-              <Link to="/cart">
-                {" "}
-                <Text fontSize={"smaller"}>Your Cart</Text>{" "}
-              </Link>
-            </Box>
-
-            <Box>
-              <Text fontSize={"smaller"}>Order Review</Text>
-            </Box>
-            <Box>
-              <Text fontSize={"smaller"}>Payment Details</Text>
-            </Box>
-          </Box>
-        </PaymentNav>
-
         <Box height={"auto"} bg={"#F3F7FB"}>
           <Box
             display={"flex"}
@@ -79,13 +54,6 @@ const Payment = () => {
               height={"auto"}
               width={"100%"}
             >
-              <Box bg={"white"} p={0} rounded={"lg"} height={50} width={"100%"}>
-                <Box display={"flex"} gap={5} p={4}>
-                  <Checkbox />
-                  <Text fontSize={"smaller"}>VOUCHERS</Text>
-                </Box>
-              </Box>
-
               <Box
                 p={4}
                 bg={"white"}
@@ -104,101 +72,6 @@ const Payment = () => {
                     />
                     <Text pt={1}>Paytm</Text>
                     <Text></Text>
-                  </Box>
-                  <Box color={"#EF4281"} pt={3} fontSize={"smaller"}>
-                    {" "}
-                    <Link to="/">LINK</Link>{" "}
-                  </Box>
-                </Box>
-              </Box>
-
-              <Box
-                p={4}
-                bg={"white"}
-                mt={5}
-                rounded={"lg"}
-                height={"auto"}
-                width={"100%"}
-              >
-                <Text fontSize={"smaller"}> REWARD PAY </Text>
-                <Box display={"flex"} pr={3} justifyContent={"space-between"}>
-                  <Box display={"flex"} pt={3} gap={8}>
-                    <Image
-                      height={30}
-                      src="https://www.netmeds.com/msassets/images/icons/TWID.png"
-                      alt="paytm"
-                    />
-                    <Text pt={1}>Pay With Rewards </Text>
-                    <Text></Text>
-                  </Box>
-                  <Box color={"#EF4281"} pt={3} fontSize={"smaller"}>
-                    {" "}
-                    <Checkbox />{" "}
-                  </Box>
-                </Box>
-              </Box>
-
-              <Box
-                p={4}
-                bg={"white"}
-                mt={5}
-                rounded={"lg"}
-                height={"auto"}
-                width={"100%"}
-              >
-                <Text fontSize={"smaller"}> WALLET </Text>
-                <Box display={"flex"} pr={3} justifyContent={"space-between"}>
-                  <Box display={"flex"} pt={3} gap={8}>
-                    <Image
-                      height={30}
-                      src="	https://www.netmeds.com/assets/pgicon/Free_Charge_lo.png"
-                      alt="paytm"
-                    />
-                    <Box fontSize={"sm"}>
-                      <Text pt={1}>Freecharge PayLater | Wallet </Text>
-                      <Text>
-                        Get up to Rs. 30 Freecharge cashback (10%) on your
-                        transaction using Freecharge wallet on Netmeds. Offer
-                        valid ONCE per user till 30th June 2022. *T&C apply
-                      </Text>
-                    </Box>
-                  </Box>
-                  <Box color={"#EF4281"} pt={3} fontSize={"smaller"}>
-                    {" "}
-                    <Link to="/">LINK</Link>{" "}
-                  </Box>
-                </Box>
-              </Box>
-
-              <Box
-                p={4}
-                bg={"white"}
-                mt={5}
-                rounded={"lg"}
-                height={"auto"}
-                width={"100%"}
-              >
-                <Text fontSize={"smaller"}> Simpl </Text>
-                <Box
-                  display={"flex"}
-                  pt={3}
-                  gap={8}
-                  justifyContent={"space-between"}
-                >
-                  <Image
-                    height={30}
-                    src="https://www.netmeds.com/msassets/images/icons/simpl-logo.png"
-                    alt="paytm"
-                  />
-                  <Box fontSize={"sm"}>
-                    <Text pt={1}>
-                      Get flat 5% Simpl cashback up to Rs. 500. Valid for all
-                      customers. OR Get flat 8% Simpl cashback up to 500. Valid
-                      for new customers.
-                    </Text>
-                    <Text>
-                      Link Account is required to complete the payment
-                    </Text>
                   </Box>
                   <Box color={"#EF4281"} pt={3} fontSize={"smaller"}>
                     {" "}
@@ -276,7 +149,35 @@ const Payment = () => {
                   </Box>
                 </Box>
               </Box>
-
+              <Box
+                fontSize={"smaller"}
+                p={4}
+                bg={"white"}
+                mt={5}
+                rounded={"lg"}
+                height={"auto"}
+                width={"100%"}
+              >
+                <Box display={"flex"} pr={3} justifyContent={"space-between"}>
+                  <Box display={"flex"} pt={3} gap={5}>
+                    <Image
+                      height={30}
+                      src="https://www.netmeds.com/assets/pgicon/COD.png"
+                      alt="paytm"
+                    />
+                    <Box>
+                      <Text pt={1}>Cash On Delivery </Text>
+                      <Text>
+                        Hear us out! Pay online and earn 100% NMS SuperCash (up
+                        to Rs. 3000) on all prepaid orders
+                      </Text>
+                    </Box>
+                  </Box>
+                  <Box color={"#EF4281"} pt={3} fontSize={"smaller"}>
+                    <Checkbox />
+                  </Box>
+                </Box>
+              </Box>
               <Box
                 p={4}
                 bg={"white"}
@@ -453,36 +354,6 @@ const Payment = () => {
                   </Select>
                 </Box>
               </Box>
-              <Box
-                fontSize={"smaller"}
-                p={4}
-                bg={"white"}
-                mt={5}
-                rounded={"lg"}
-                height={"auto"}
-                width={"100%"}
-              >
-                <Box display={"flex"} pr={3} justifyContent={"space-between"}>
-                  <Box display={"flex"} pt={3} gap={5}>
-                    <Image
-                      height={30}
-                      src="https://www.netmeds.com/assets/pgicon/COD.png"
-                      alt="paytm"
-                    />
-                    <Box>
-                      <Text pt={1}>Cash On Delivery </Text>
-                      <Text>
-                        Hear us out! Pay online and earn 100% NMS SuperCash (up
-                        to Rs. 3000) on all prepaid orders
-                      </Text>
-                    </Box>
-                  </Box>
-                  <Box color={"#EF4281"} pt={3} fontSize={"smaller"}>
-                    {" "}
-                    <Checkbox />{" "}
-                  </Box>
-                </Box>
-              </Box>
             </Box>
 
             <Box
@@ -492,6 +363,7 @@ const Payment = () => {
               pr={8}
               width={470}
               height={"260px"}
+              mt="5"
             >
               <Text mb={1} color={"grey"} fontSize={"sm"}>
                 PAYMENT DETAILS
@@ -503,7 +375,7 @@ const Payment = () => {
                 display={"flex"}
               >
                 <Text> MRP Total</Text>
-                <Text>Rs 3745.00</Text>
+                <Text>Rs {totalcost}.00</Text>
               </Box>
               <Box
                 fontSize={"sm"}
@@ -522,7 +394,7 @@ const Payment = () => {
                 display={"flex"}
               >
                 <Text>Total Amount*</Text>
-                <Text>Rs 3745.00</Text>
+                <Text>Rs Rs {totalcost}.00</Text>
               </Box>
 
               <Box
@@ -535,28 +407,23 @@ const Payment = () => {
               >
                 <Box>
                   <Text fontSize={"xs"}>TOTAL AMOUNT </Text>
-                  <Text fontSize={"larger"}>Rs 3745.00</Text>
+                  <Text fontSize={"larger"}>Rs {totalcost}.00</Text>
                 </Box>
 
                 <Box>
-                  <Link to="/cart/payment">
-                    {" "}
-                    <Button
-                      onClick={handleproceed}
-                      bg="#ff7856"
-                      color="white"
-                      size={"lg"}
-                    >
-                      PROCEED
-                    </Button>{" "}
-                  </Link>
+                  <Button
+                    onClick={handleproceed}
+                    bg="#11025b"
+                    color="white"
+                    size={"lg"}
+                  >
+                    PROCEED
+                  </Button>
                 </Box>
               </Box>
             </Box>
           </Box>
         </Box>
-
-        <div>Payment</div>
       </Box>
     </>
   );

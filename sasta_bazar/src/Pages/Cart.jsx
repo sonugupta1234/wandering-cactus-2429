@@ -77,7 +77,7 @@ const Cart = () => {
             borderRadius: "10px",
             fontSize: "20px",
           }}
-          // onClick={() => navigate("/cart/payment")}
+          onClick={() => navigate("/payment")}
         >
           Place Order😊
         </button>
