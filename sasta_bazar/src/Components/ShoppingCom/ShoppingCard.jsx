@@ -14,7 +14,7 @@ const ShoppingCard = ({image,brands,price,title}) => {
       <Text pt={4} pb={4} color="black">
         {title}
       </Text>
-      <Heading color="blue" size="sm">
+      <Heading color="#2e3192" size="sm">
         {price}
       </Heading>
       {/* <Button
