@@ -148,7 +148,7 @@ link:""    },
     <>
       <Navbar />
       <HStack
-        pt={10}
+       
         w="90%"
         margin="auto"
         display="grid"
@@ -252,7 +252,7 @@ link:""    },
           onClick={() => setMenCount((pre) => pre + 10)}
           width="15%"
           border="1px solid blue"
-          bg="blue"
+          bg="#2e3192"
           color="white"
           m={3}
           _hover={{ color: "white" }}
@@ -288,7 +288,7 @@ link:""    },
           onClick={() => setwomenCount((pre) => pre + 10)}
           width="15%"
           border="1px solid blue"
-          bg="blue"
+          bg="#2e3192"
           color="white"
           m={3}
           _hover={{ color: "white" }}
@@ -323,13 +323,31 @@ link:""    },
           onClick={() => setAccCount((pre) => pre + 10)}
           width="15%"
           border="1px solid blue"
-          bg="blue"
+          bg="#2e3192"
           m={3}
           color="white"
           _hover={{ color: "white" }}
         >
           View more
         </Button>
+        <Flex
+        direction={["column", "column", "row"]}
+        color="gray"
+        bg="#232324"
+        justifyContent="space-between"
+        alignItems="center"
+        h="80px"
+        
+      >
+        <Box ml="5">Copyright © 1996-2023 IndiaMART. All rights reserved.</Box>
+        <HStack mr="5" gap="5">
+          <Box>Home </Box>
+          <Box> Sell on IndiaMART</Box>
+          <Box>FAQ</Box>
+          <Box>Terms of Use</Box>
+          <Box> Privacy Policy</Box>
+        </HStack>
+      </Flex>
       </Box>
     </>
   );

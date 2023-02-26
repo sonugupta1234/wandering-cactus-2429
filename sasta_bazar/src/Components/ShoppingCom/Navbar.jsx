@@ -13,26 +13,32 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-
+import {HamburgerIcon} from '@chakra-ui/icons'
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Navbar = () => {
   return (
-    <Box m={3} position="sticky" top="0px" zIndex="100" bg="white">
-      <Box
+    <Box m={3} position="sticky" top="0px" p='2' zIndex="100" bg="white">
+      <Flex
         w="90%"
         margin="auto"
-        display="flex"
-        direction={["column", "row", "row"]}
-        alignItems="center"
+        gap={[0,"5","0"]}
+        direction={["column", "column", "row"]}
+        alignItems={["","center"]}
+        justifyContent={[,,"space-around"]}
       >
-        <Image
+      <Flex>
+      <Image
           pr={10}
-          width="auto"
-          h={12}
+          w={["auto","auto",'250px']}
+         
           src="https://shopping.imimg.com/style/im_logo.jpg"
         ></Image>
-        <InputGroup pl={10} pr={10} size="md">
+        
+      </Flex>
+
+    
+       <Flex  p={[,,2]} direction={["column", "column", "row"]} gap={["5","5","0"]} alignItems={["","center"]} display={['none','flex']}> <InputGroup pl={10} pr={10} size="md" >
           <InputLeftAddon h={12} bg="white" children="Shop" />
           <Input h={12} placeholder="what are you looking for" />
           <InputRightAddon
@@ -57,8 +63,8 @@ const Navbar = () => {
               <Heading size="md">Cart</Heading>
             </Flex>
           </Box>
-        </Link>
-      </Box>
+        </Link></Flex>
+      </Flex>
     </Box>
   );
 };

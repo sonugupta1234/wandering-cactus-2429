@@ -20,7 +20,7 @@ const ShopMenCard = ({image,brands,price,title,id}) => {
       <Text p={4} color="black">
         {title.trim().split(' ').splice(0,3).join(' ')}
       </Text>
-      <Heading pb={4} color="blue" size="sm">
+      <Heading pb={4} color="#2e3192" size="sm">
         {price}
       </Heading>
     </Box>
