@@ -91,7 +91,7 @@ const SignleMenProductPage = () => {
           </Heading>
 
           <Heading as="h2" fontWeight="semibold" fontSize="2xl" lineHeight="10">
-            Price: {data && data.price}
+            Price: ₹{data && data.price}
           </Heading>
           <HStack w="100%" gap="10%" mt="5">
             <Button

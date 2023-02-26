@@ -35,7 +35,7 @@ const MensProductCards = ({ brands, image, title, price, id }) => {
       </Box>
 
       <Text fontSize="xl" fontWeight="semibold" color="#2e3192">
-        {price}
+        ₹ {price}
       </Text>
       <Button
         variant="outline"
