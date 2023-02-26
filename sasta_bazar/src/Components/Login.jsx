@@ -8,6 +8,8 @@ import { Navbar } from './Navbar'
 export const Login = () => {
 
     const userdata=useSelector((store)=>store.AuthReducer.userdata)
+
+    //console.log(userdata);
     
     console.log(userdata)
     const toast=useToast()

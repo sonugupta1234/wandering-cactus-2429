@@ -11,20 +11,20 @@ import {
 } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
-import { GET_PRODUCT } from '../Redux/action';
-import Navbar from './Navbar/Navbar';
+import { GET_PRODUCT } from '../../../Redux/AdminRedux/action';
 import { ProductList } from './ProductList';
+import Admin_Navbar from '../Admin_Navbar/Admin_Navbar';
 export const Product = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(GET_PRODUCT)
     }, [])
-    const { products, isLoading, isError } = useSelector((store) => { return { products: store.ProductReducer.products, isLoading: store.ProductReducer.isLoading, isError: store.ProductReducer.isError } }, shallowEqual)
+    const { products, isLoading, isError } = useSelector((store) => { return { products: store.AdminReducer.products, isLoading: store.ProductReducer.isLoading, isError: store.ProductReducer.isError } }, shallowEqual)
     console.log(products);
     return (
         <div>
            <div>
-         <Navbar />
+        <Admin_Navbar />
            </div>
            <div>
                 <TableContainer>

@@ -47,7 +47,9 @@ export const Navbar = () => {
 
   let newdata={
     email,
-    password
+    password,
+    "order":[],
+    "type":"user"
   }
 
   const handleSubmit=(e)=>{
@@ -141,7 +143,7 @@ export const Navbar = () => {
               <MenuList minW="40%">
                 <MenuItem  onClick={onOpenSign}>Sign In</MenuItem>
                 <Link to="/login"><MenuItem isDisabled={isAuth==true}>Log In</MenuItem></Link>
-                <MenuItem>Admin</MenuItem>
+                <Link to="/admin"><MenuItem>Admin</MenuItem></Link>
                 <MenuItem isDisabled={isAuth==false} onClick={handlelogout} >Logout</MenuItem>
               </MenuList>
             </Menu>

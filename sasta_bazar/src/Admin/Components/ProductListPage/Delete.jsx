@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, ButtonGroup } from '@chakra-ui/react'
-import { DELETE_PRODUCT } from '../Redux/action'
 import { useDispatch } from 'react-redux'
+import { DELETE_PRODUCT } from '../../../Redux/AdminRedux/action';
 
 
 const Delete = ({ id }) => {

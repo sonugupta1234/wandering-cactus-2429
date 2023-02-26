@@ -9,8 +9,9 @@ import {
     TableCaption,
     TableContainer,
 } from '@chakra-ui/react'
-import Delete from './Delete'
 import { Update } from './Update'
+import  Delete  from './Delete'
+
 
 export const ProductList = ({ id, image, price, title, brands, category }) => {
     return (

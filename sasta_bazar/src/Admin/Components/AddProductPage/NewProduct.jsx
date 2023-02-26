@@ -9,8 +9,8 @@ import {
     Select
 } from '@chakra-ui/react'
 import { useState } from 'react'
-import { createProduct } from '../Redux/action'
-import Navbar from './Navbar/Navbar'
+import { createProduct } from '../../../Redux/AdminRedux/action'
+import Admin_Navbar from '../Admin_Navbar/Admin_Navbar'
 import "./NewProduct.css"
 
 const initalState = {
@@ -40,7 +40,7 @@ export const NewProduct = () => {
     return (
         <>
             <div>
-                <Navbar />
+                <Admin_Navbar />
             </div>
             <div className='form'>
                 <form onSubmit={(e) => handleSubmit(e)}>

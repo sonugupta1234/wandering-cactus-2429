@@ -22,7 +22,8 @@ import {
 import { GrAdd } from 'react-icons/gr';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { UPDATE_PRODUCT } from '../Redux/action';
+import { UPDATE_PRODUCT } from '../../../Redux/AdminRedux/action';
+
 export const Update = ({ id, image, price, title, brands, category }) => {
     const [_id, setId] = useState(id)
     const [_image, setImage] = useState(image)

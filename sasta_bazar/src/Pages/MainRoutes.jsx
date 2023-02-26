@@ -17,6 +17,9 @@ import Womens from "./Womens";
 import { Login } from "../Components/Login";
 
 import ShopIndex from "../Components/ShoppingCom/ShopIndex";
+import { NewProduct } from "../Admin/Components/AddProductPage/NewProduct";
+import Admin_Home from "../Admin/Components/Admin_Home/Admin_Home";
+import { Product } from "../Admin/Components/ProductListPage/Product";
 
 
 const MainRoutes = () => {
@@ -40,6 +43,9 @@ const MainRoutes = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/shop" element={<ShopIndex />} />
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
+        <Route path="/admin" element={<Admin_Home />} />
+        <Route path="/admin_add_product" element={<NewProduct />} />
+        <Route path="/admin_product_list" element={<Product />} />
       </Routes>
     </div>
   );
