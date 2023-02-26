@@ -4,6 +4,7 @@ import {
   BreadcrumbItem,
   Button,
   Heading,
+  Select,
   Skeleton,
   Stack,
 } from "@chakra-ui/react";
@@ -14,16 +15,40 @@ import { getMobileData } from "../Redux/ProductReducer/action";
 import { FaArrowUp } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Navbar from "../Components/ShoppingCom/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 //
 const MobileAccessories = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isVisible, setIsVisible] = useState(false);
+  let location = useLocation();
+  let initOrder = searchParams.get("order");
+  const [order, setOrder] = useState(initOrder || "");
   const dispatch = useDispatch();
   const { isLoading, isError, mobile_data } = useSelector(
     (store) => store.ProductReducer
   );
+  //sortng logic
+  const handleOrder = (e) => {
+    setOrder(e.target.value);
+  };
+  // to persist data on url
+  useEffect(() => {
+    if (order !== "") {
+      let params = {
+        order,
+      };
+      setSearchParams(params);
+    }
+  }, [order]);
+  ///
+  let obj = {
+    params: {
+      _sort: searchParams.get("order") && "price",
+      _order: searchParams.get("order"),
+    },
+  };
   // Show button when page is scrolled down
   useEffect(() => {
     const toggleVisibility = () => {
@@ -37,8 +62,8 @@ const MobileAccessories = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
   useEffect(() => {
-    dispatch(getMobileData());
-  }, []);
+    dispatch(getMobileData(obj));
+  }, [location.search]);
   // Scroll to top when button is clicked
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -61,6 +86,23 @@ const MobileAccessories = () => {
           <Link to="/shop">Shop</Link>
         </BreadcrumbItem>
       </Breadcrumb>
+      {/* //sorting */}
+      <Select
+        ml={["20px", "25px", "40px", "100px"]}
+        w="200px"
+        onChange={handleOrder}
+      >
+        <option p="5" value="">
+          Sort By Price
+        </option>
+        <option p="5" value="desc">
+          High to Low
+        </option>
+        <option p="5" value="asc">
+          Low to High
+        </option>
+      </Select>
+      {/* /// */}
       {isLoading ? (
         <Stack w="90vw" h="100vh" ml="auto" mr="auto">
           <Skeleton startColor="green.500" endColor="blue.500" height="20px" />

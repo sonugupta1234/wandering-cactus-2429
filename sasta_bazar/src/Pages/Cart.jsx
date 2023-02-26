@@ -63,7 +63,7 @@ const Cart = () => {
       <hr />
       <Box textAlign="right" p="1rem">
         <Text as="b" fontSize="3xl">
-          Cart Total : <span style={{ color: "green" }}>{totalcost}</span>{" "}
+          Cart Total : <span style={{ color: "green" }}>₹{totalcost}</span>{" "}
         </Text>
         <Text mb={3} fontSize="xs">
           Inclusive of all the applicable taxes
