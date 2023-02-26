@@ -6,8 +6,8 @@ import { useState } from "react";
 
 const ProductinCart = ({ id, title, image, price, deletefunc, handlecost }) => {
   const [quantity, setQuantity] = useState(1);
-  price = price.trim().split(" ");
-  let newPrice = +price[1];
+
+  let newPrice = price;
 
   let sum = quantity * newPrice;
 
@@ -35,7 +35,7 @@ const ProductinCart = ({ id, title, image, price, deletefunc, handlecost }) => {
         </Box>
         <Box>
           <Text as="i" fontSize="lg" color="green">
-            {price}
+            ₹ {price}
           </Text>
         </Box>
         <Box color="black">
