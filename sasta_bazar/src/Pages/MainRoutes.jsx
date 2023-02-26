@@ -11,16 +11,13 @@ import SignleMenProductPage from "./SignleMenProductPage";
 import SignleWomenProductPage from "./SignleWomenProductPage";
 import SingleMobileAccessoriesProductPage from "./SingleMobileAccessoriesProductPage";
 import Cart from "./Cart";
-
 import Womens from "./Womens";
-
 import { Login } from "../Components/Login";
-
 import ShopIndex from "../Components/ShoppingCom/ShopIndex";
+import Payment from "./Payment";
 import { NewProduct } from "../Admin/Components/AddProductPage/NewProduct";
 import Admin_Home from "../Admin/Components/Admin_Home/Admin_Home";
 import { Product } from "../Admin/Components/ProductListPage/Product";
-
 
 const MainRoutes = () => {
   return (
@@ -33,8 +30,7 @@ const MainRoutes = () => {
         <Route path="/womens/:id" element={<SignleWomenProductPage />} />
         <Route path="/mobile" element={<MobileAccessories />} />
         <Route path="/login" element={<Login />} />
-
-        {/* <Route path="/mobile/:id" element={<SignleProductPage />} /> */}
+        <Route path="/payment" element={<Payment />} />
 
         <Route
           path="/mobile/:id"
