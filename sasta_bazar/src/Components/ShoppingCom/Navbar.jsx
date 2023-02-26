@@ -27,18 +27,23 @@ const Navbar = () => {
         alignItems={["","center"]}
         justifyContent={[,,"space-around"]}
       >
+
+        <Link to="/shop">
+          <Image
+            pr={10}
+            width="auto"
+            h={12}
+            src="https://shopping.imimg.com/style/im_logo.jpg"
+          ></Image>
+        </Link>
+        <InputGroup pl={10} pr={10} size="md">
+
       <Flex>
-      <Image
-          pr={10}
-          w={["auto","auto",'250px']}
-         
-          src="https://shopping.imimg.com/style/im_logo.jpg"
-        ></Image>
-        
-      </Flex>
+     
 
     
        <Flex  p={[,,2]} direction={["column", "column", "row"]} gap={["5","5","0"]} alignItems={["","center"]} display={['none','flex']}> <InputGroup pl={10} pr={10} size="md" >
+
           <InputLeftAddon h={12} bg="white" children="Shop" />
           <Input h={12} placeholder="what are you looking for" />
           <InputRightAddon

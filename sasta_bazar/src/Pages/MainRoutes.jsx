@@ -17,7 +17,7 @@ import Womens from "./Womens";
 import { Login } from "../Components/Login";
 
 import ShopIndex from "../Components/ShoppingCom/ShopIndex";
-
+import Payment from "./Payment";
 
 const MainRoutes = () => {
   return (
@@ -30,8 +30,7 @@ const MainRoutes = () => {
         <Route path="/womens/:id" element={<SignleWomenProductPage />} />
         <Route path="/mobile" element={<MobileAccessories />} />
         <Route path="/login" element={<Login />} />
-
-        {/* <Route path="/mobile/:id" element={<SignleProductPage />} /> */}
+        <Route path="/payment" element={<Payment />} />
 
         <Route
           path="/mobile/:id"
