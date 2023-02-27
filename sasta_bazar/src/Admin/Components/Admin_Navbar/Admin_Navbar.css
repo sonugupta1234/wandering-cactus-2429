@@ -78,7 +78,8 @@ li {
   font-weight: 400;
   text-transform: uppercase;
   background: -webkit-linear-gradient(#eee, rgb(69, 57, 248));
-  -webkit-background-clip: text;
+   -webkit-background-clip: text;
+   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
