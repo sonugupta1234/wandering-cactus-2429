@@ -1,6 +1,6 @@
 ## Project Title
 
-Yummy In the Tummy
+IndiaMart
 
 ### Description
 
@@ -14,7 +14,7 @@ IndiaMart is an e-commerce online website for the best products of all categorie
 - shivam
 
 
-### `Landing Page`
+### `Project Screenshots`
 
 - ![Screenshot (260)](https://user-images.githubusercontent.com/112892522/221486632-fa465c01-6249-44dd-a056-7c7234dc673a.png)
 
