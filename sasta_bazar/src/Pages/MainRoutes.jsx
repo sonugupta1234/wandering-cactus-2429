@@ -11,6 +11,7 @@ import SignleMenProductPage from "./SignleMenProductPage";
 import SignleWomenProductPage from "./SignleWomenProductPage";
 import SingleMobileAccessoriesProductPage from "./SingleMobileAccessoriesProductPage";
 import Cart from "./Cart";
+import { PrivateRoutes } from "../Components/PrivateRoutes";
 
 import Womens from "./Womens";
 
@@ -36,7 +37,7 @@ const MainRoutes = () => {
           path="/mobile/:id"
           element={<SingleMobileAccessoriesProductPage />}
         />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<PrivateRoutes><Cart /></PrivateRoutes>} />
         <Route path="/shop" element={<ShopIndex />} />
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
       </Routes>
