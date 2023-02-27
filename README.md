@@ -16,7 +16,7 @@ IndiaMart is an e-commerce online website for the best products of all categorie
 
 ### `Landing Page`
 
-- ![Screenshot (200)](https://user-images.githubusercontent.com/112892522/213980189-089914c6-4e36-4c91-a9b4-c8d90cbf2c57.png)
+- ![Screenshot (260)](https://user-images.githubusercontent.com/112892522/221486632-fa465c01-6249-44dd-a056-7c7234dc673a.png)
 
 ### `Tech Stack`
 
