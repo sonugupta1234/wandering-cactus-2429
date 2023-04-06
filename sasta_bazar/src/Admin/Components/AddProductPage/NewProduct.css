@@ -1,0 +1,6 @@
+.form {
+    z-index: -1;
+    width: 50%;
+    margin: auto;
+    gap: "50px";
+}

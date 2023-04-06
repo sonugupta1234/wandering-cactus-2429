@@ -12,13 +12,13 @@ import SignleWomenProductPage from "./SignleWomenProductPage";
 import SingleMobileAccessoriesProductPage from "./SingleMobileAccessoriesProductPage";
 import Cart from "./Cart";
 import { PrivateRoutes } from "../Components/PrivateRoutes";
-
 import Womens from "./Womens";
-
 import { Login } from "../Components/Login";
-
 import ShopIndex from "../Components/ShoppingCom/ShopIndex";
 import Payment from "./Payment";
+import { NewProduct } from "../Admin/Components/AddProductPage/NewProduct";
+import Admin_Home from "../Admin/Components/Admin_Home/Admin_Home";
+import { Product } from "../Admin/Components/ProductListPage/Product";
 
 const MainRoutes = () => {
   return (
@@ -40,6 +40,9 @@ const MainRoutes = () => {
         <Route path="/cart" element={<PrivateRoutes><Cart /></PrivateRoutes>} />
         <Route path="/shop" element={<ShopIndex />} />
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
+        <Route path="/admin" element={<Admin_Home />} />
+        <Route path="/admin_add_product" element={<NewProduct />} />
+        <Route path="/admin_product_list" element={<Product />} />
       </Routes>
     </div>
   );
