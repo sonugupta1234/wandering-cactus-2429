@@ -18,7 +18,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Navbar = () => {
   return (
-    <Box m={3} position="sticky" top="0px" p="2" zIndex="100" bg="white">
+    <Box m={3} position="sticky" top="0px" p="2" zIndex="100" bg="red.100">
       <Flex
         w="90%"
         margin="auto"
