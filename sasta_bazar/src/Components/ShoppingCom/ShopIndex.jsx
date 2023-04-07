@@ -63,7 +63,7 @@ const ShopIndex = () => {
     },
     {
       image: "https://shopping.imimg.com/style/mobile-accessories.png",
-      name: "Mobile Accessories",
+      name: "Accessories",
       link: "/mobile",
     },
     {
@@ -73,7 +73,7 @@ const ShopIndex = () => {
     },
     {
       image: "https://shopping.imimg.com/style/beauty-products.png",
-      name: "Beauty Products",
+      name: "Beauty",
       link: "/mens",
     },
 
@@ -84,7 +84,7 @@ const ShopIndex = () => {
     },
     {
       image: "https://shopping.imimg.com/style/artificial-jewellery.png",
-      name: "Artificial Jewellery",
+      name: "Jewellery",
       link: "/mens",
     },
     {
@@ -99,7 +99,7 @@ const ShopIndex = () => {
     },
     {
       image: "https://shopping.imimg.com/style/industrial-chemicals.png",
-      name: "Industrial Chemicals",
+      name: "Chemicals",
       link: "/mens",
     },
   ];
@@ -111,21 +111,24 @@ const ShopIndex = () => {
       title: "Shining Maroon Partywear Waistcoat Jacket",
       brands: "Italian Crown",
       price: "₹ 1599",
-    link:"http://localhost:3000/mens/5"    },
+      link: "http://localhost:3000/mens/5",
+    },
     {
       image:
         "https://5.imimg.com/data5/ECOM/Default/2022/7/QX/RA/RW/153877403/img-20220709-wa0074-500x500.jpg",
       title: "Reyon Digital Bandhani Print Anarkali Kurti Pant Set (Stitched)",
       brands: "Ethenika",
       price: "₹ 1990",
-    link:"http://localhost:3000/womens/54"    },
+      link: "http://localhost:3000/womens/54",
+    },
     {
       image:
         "https://5.imimg.com/data5/ECOM/Default/2022/10/VG/PK/YQ/13342524/img-2747-500x500.jpg",
       title: "Culver City Coords White Pant Set",
       brands: "Shraddhaa Trends",
       price: "₹ 2300",
-    link:""    },
+      link: "",
+    },
     {
       image:
         "https://5.imimg.com/data5/ECOM/Default/2022/12/AQ/EA/HP/4120003/1621858081392-16-23-nmhuaje-originnm80prcnt-500x500.jpg",
@@ -134,21 +137,22 @@ const ShopIndex = () => {
       brands: "Ramshiv Exports",
       price: "₹ 876",
 
-link:""    },
+      link: "",
+    },
     {
       image:
         "https://5.imimg.com/data5/ECOM/Default/2022/12/MX/CE/UR/90086993/53d381e5-mspant50186-12-06cf938a-e9bb-434a-97f8-9a00cf3c13b4-500x500.jpg",
       title: "Men's Grey Mascln Embroidered Joggers",
       brands: "NOZ2TOZ",
       price: "₹ 1019",
-    link:""    },
+      link: "",
+    },
   ];
 
   return (
     <>
       <Navbar />
       <HStack
-       
         w="90%"
         margin="auto"
         display="grid"
@@ -331,23 +335,24 @@ link:""    },
           View more
         </Button>
         <Flex
-        direction={["column", "column", "row"]}
-        color="gray"
-        bg="#232324"
-        justifyContent="space-between"
-        alignItems="center"
-        h="80px"
-        
-      >
-        <Box ml="5">Copyright © 1996-2023 IndiaMART. All rights reserved.</Box>
-        <HStack mr="5" gap="5">
-          <Box>Home </Box>
-          <Box> Sell on IndiaMART</Box>
-          <Box>FAQ</Box>
-          <Box>Terms of Use</Box>
-          <Box> Privacy Policy</Box>
-        </HStack>
-      </Flex>
+          direction={["column", "column", "row"]}
+          color="gray"
+          bg="#232324"
+          justifyContent="space-between"
+          alignItems="center"
+          h="80px"
+        >
+          <Box ml="5">
+            Copyright © 1996-2023 IndiaMART. All rights reserved.
+          </Box>
+          <HStack mr="5" gap="5">
+            <Box>Home </Box>
+            <Box> Sell on IndiaMART</Box>
+            <Box>FAQ</Box>
+            <Box>Terms of Use</Box>
+            <Box> Privacy Policy</Box>
+          </HStack>
+        </Flex>
       </Box>
     </>
   );
