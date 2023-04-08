@@ -1,10 +1,12 @@
+ {/*
+
 import { useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {  authstatus, getdata } from '../Redux/AuthReducer/action'
 import { Navbar } from './Navbar'
-
+ 
 export const Login = () => {
 
     const userdata=useSelector((store)=>store.AuthReducer.userdata)
@@ -26,8 +28,6 @@ export const Login = () => {
         let new_data=userdata.find((item)=>item.email===email && item.password===password)
 
         if(new_data){
-         
-        //   console.log(isAuth)
           toast({
             title: 'Login Successfull',
             description: "Logged In as Sonu Gupta",
@@ -39,7 +39,6 @@ export const Login = () => {
           dispatch(authstatus) .then(()=>{
             navigate(location.state, {replace: true})
           })
-        //   return navigate(location.search, replace)
         }else{
             toast2({
                 title: 'Invalid User',
@@ -75,3 +74,4 @@ export const Login = () => {
     </>
   )
 }
+ */}
