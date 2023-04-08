@@ -19,29 +19,12 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-const Links = ["Dashboard", "Projects", "Team"];
-
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
-
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Box px={4}>
+      <Box px={4} bg="#f7fafc" position="sticky" top="0px" zIndex="100">
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -62,9 +45,15 @@ function Navbar() {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              <Link fontWeight={"semibold"} href="/shop">
+                Shopping
+              </Link>
+              <Link fontWeight={"semibold"} href="#">
+                Help
+              </Link>
+              <Link fontWeight={"semibold"} href="#">
+                Message
+              </Link>
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
@@ -96,9 +85,15 @@ function Navbar() {
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              <Link fontWeight={"semibold"} href="/shop">
+                Shopping
+              </Link>
+              <Link fontWeight={"semibold"} href="#">
+                Help
+              </Link>
+              <Link fontWeight={"semibold"} href="#">
+                Message
+              </Link>
             </Stack>
           </Box>
         ) : null}

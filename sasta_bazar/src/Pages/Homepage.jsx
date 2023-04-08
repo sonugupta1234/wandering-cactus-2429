@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 
 import {
   Box,
@@ -10,84 +10,134 @@ import {
   Image,
   InputGroup,
   InputLeftAddon,
-  Stack,
-  useBreakpointValue,
 } from "@chakra-ui/react";
-
+import { Navbar } from "../Components/Navbar";
 import Carousel from "../Components/Carousel";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getMensData,
+  getWomensData,
+  getMobileData,
+} from "../Redux/ProductReducer/action";
+import MensProductCards from "../Components/MensProductCards";
+import CardSkeleton from "../Components/Skeleton";
 
 export const Homepage = () => {
+  const dispatch = useDispatch();
+  const { isLoading, isError, mens_data, mobile_data, womens_data } =
+    useSelector((store) => store.ProductReducer);
+  //getting data from server
+  useEffect(() => {
+    dispatch(getMensData());
+    dispatch(getWomensData());
+    dispatch(getMobileData());
+  }, []);
+
   return (
     <Box>
-      <Box width="100%">
-        <Box w={"100%"}>
-          <Carousel />
-        </Box>
+      {/* Navbar */}
+      <Navbar />
+      {/* Carousel Section */}
+      <Box w={"100%"}>
+        <Carousel />
       </Box>
-      {/* Hero Section */}
 
-      <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-        <Flex p={8} flex={1} align={"center"} justify={"center"}>
-          <Stack spacing={6} w={"full"} maxW={"lg"}>
-            <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-              <Text
-                as={"span"}
-                position={"relative"}
-                _after={{
-                  content: "''",
-                  width: "full",
-                  height: useBreakpointValue({ base: "20%", md: "30%" }),
-                  position: "absolute",
-                  bottom: 1,
-                  left: 0,
-                  bg: "blue.400",
-                  zIndex: -1,
-                }}
-              >
-                Freelance
-              </Text>
-              <br />{" "}
-              <Text color={"blue.400"} as={"span"}>
-                Design Projects
-              </Text>{" "}
-            </Heading>
-            <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-              The project board is an exclusive resource for contract work. It's
-              perfect for freelancers, agencies, and moonlighters.
-            </Text>
-            <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-              <Button
-                rounded={"full"}
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Create Project
-              </Button>
-              <Button rounded={"full"}>How It Works</Button>
-            </Stack>
-          </Stack>
-        </Flex>
-        <Flex flex={1}>
-          <Image
-            alt={"Login Image"}
-            objectFit={"cover"}
-            src={
-              "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-            }
-          />
-        </Flex>
-      </Stack>
+      {/* Trending Products */}
+      <Box mt="10">
+        <Heading textAlign="left">Trending Products</Heading>
+        {isLoading ? (
+          <CardSkeleton />
+        ) : isError ? (
+          <Heading>😒 Sorry some problems in the server </Heading>
+        ) : (
+          <Box
+            mt="5"
+            display={"grid"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            overflow={"hidden"}
+            gridTemplateColumns={[
+              "1fr",
+              "1fr 1fr",
+              "1fr 1fr 1fr",
+              ,
+              "1fr 1fr 1fr 1fr 1fr",
+            ]}
+          >
+            {womens_data.length > 0 &&
+              womens_data.map((e, ind) => {
+                return ind < 5 ? <MensProductCards {...e} /> : "";
+              })}
+          </Box>
+        )}
+      </Box>
+      {/* Deals of the day  */}
+      <Box mt="5">
+        <Heading textAlign="left">Deals of the day</Heading>
+        {isLoading ? (
+          <CardSkeleton />
+        ) : isError ? (
+          <Heading>😒 Sorry some problems in the server </Heading>
+        ) : (
+          <Box
+            mt="5"
+            display={"grid"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            overflow={"hidden"}
+            gridTemplateColumns={[
+              "1fr",
+              "1fr 1fr",
+              "1fr 1fr 1fr",
+              ,
+              "1fr 1fr 1fr 1fr 1fr",
+            ]}
+          >
+            {mens_data.length > 0 &&
+              mens_data.map((e, ind) => {
+                return ind < 5 ? <MensProductCards {...e} /> : "";
+              })}
+          </Box>
+        )}
+      </Box>
+      {/* Todays Specials  */}
+      <Box mt="5">
+        <Heading textAlign="left">Today's Specials </Heading>
+        {isLoading ? (
+          <CardSkeleton />
+        ) : isError ? (
+          <Heading>😒 Sorry some problems in the server </Heading>
+        ) : (
+          <Box
+            mt="5"
+            display={"grid"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            overflow={"hidden"}
+            gridTemplateColumns={[
+              "1fr",
+              "1fr 1fr",
+              "1fr 1fr 1fr",
+              ,
+              "1fr 1fr 1fr 1fr 1fr",
+            ]}
+          >
+            {mobile_data.length > 0 &&
+              mobile_data.map((e, ind) => {
+                return ind < 5 ? <MensProductCards {...e} /> : "";
+              })}
+          </Box>
+        )}
+      </Box>
+      {/* Get mobile App Section */}
 
-      <Box width="80%" margin="auto" mt={20}>
-        <Flex>
-          <Box width="30%">
+      <Box width={{ base: "100%", sm: "90%", md: "80%" }} margin="auto" mt={20}>
+        <Flex direction={{ base: "column", md: "row" }}>
+          <Box width={{ base: "100%", md: "30%" }}>
             <Image src="https://hm.imimg.com/imhome_gifs/app-img.png" alt="" />
           </Box>
 
-          <Box width="50%" ml={30}>
+          <Box width={{ base: "100%", md: "50%" }} ml={{ base: 0, md: 30 }}>
             <Box>
               <Heading>Get IndiaMART App</Heading>
               <Text>
@@ -96,15 +146,18 @@ export const Homepage = () => {
               </Text>
             </Box>
 
-            <Box mt={30}>
-              <Flex>
-                <InputGroup>
+            <Box mt={{ base: 10, md: 30 }}>
+              <Flex direction={{ base: "column", md: "row" }}>
+                <InputGroup width={{ base: "100%", md: "70%" }}>
                   <InputLeftAddon children="+91" />
                   <Input type="tel" placeholder="Enter Mobile Number" />
                 </InputGroup>
                 <Button
+                  color="white"
                   backgroundColor={"#007A6E"}
                   _hover={{ backgroundColor: "#007A6E" }}
+                  mt={{ base: 4, md: 0 }}
+                  ml={{ base: 0, md: 4 }}
                 >
                   Send me the link
                 </Button>
