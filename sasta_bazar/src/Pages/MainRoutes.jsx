@@ -13,12 +13,13 @@ import SingleMobileAccessoriesProductPage from "./SingleMobileAccessoriesProduct
 import Cart from "./Cart";
 import { PrivateRoutes } from "../Components/PrivateRoutes";
 import Womens from "./Womens";
-import { Login } from "../Components/Login";
 import ShopIndex from "../Components/ShoppingCom/ShopIndex";
 import Payment from "./Payment";
 import { NewProduct } from "../Admin/Components/AddProductPage/NewProduct";
 import Admin_Home from "../Admin/Components/Admin_Home/Admin_Home";
 import { Product } from "../Admin/Components/ProductListPage/Product";
+import Login from "./Login"
+import SignUp from "./SignUp";
 
 const MainRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const MainRoutes = () => {
         <Route path="/womens/:id" element={<SignleWomenProductPage />} />
         <Route path="/mobile" element={<MobileAccessories />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/payment" element={<Payment />} />
 
         <Route
