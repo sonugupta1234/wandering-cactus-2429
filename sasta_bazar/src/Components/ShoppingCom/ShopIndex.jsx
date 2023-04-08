@@ -334,25 +334,6 @@ const ShopIndex = () => {
         >
           View more
         </Button>
-        <Flex
-          direction={["column", "column", "row"]}
-          color="gray"
-          bg="#232324"
-          justifyContent="space-between"
-          alignItems="center"
-          h="80px"
-        >
-          <Box ml="5">
-            Copyright © 1996-2023 IndiaMART. All rights reserved.
-          </Box>
-          <HStack mr="5" gap="5">
-            <Box>Home </Box>
-            <Box> Sell on IndiaMART</Box>
-            <Box>FAQ</Box>
-            <Box>Terms of Use</Box>
-            <Box> Privacy Policy</Box>
-          </HStack>
-        </Flex>
       </Box>
     </>
   );
