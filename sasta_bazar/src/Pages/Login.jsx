@@ -33,9 +33,7 @@ export default function SignIn() {
     const [show, setShow] = useState(false)
     const location = useLocation()
     const toast = useToast()
-
     const userdata = useSelector((store) => store.AuthReducer.userdata)
-
     const isAuth = useSelector((store) => store.AuthReducer.isAuth)
     const user = useSelector((store) => store.AuthReducer.user)
     const handleLogin = () => {
@@ -50,7 +48,8 @@ export default function SignIn() {
                 duration: 3000,
                 isClosable: true,
             })
-            dispatch(authstatus(new_data)).then(() => navigate(location.state, { replace: true }))
+             dispatch(authstatus(new_data))
+            navigate('/shop')
         } else {
             toast({
                 title: 'Login Failed',
