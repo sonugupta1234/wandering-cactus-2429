@@ -2,18 +2,21 @@
   "userdata": [
     {
       "email": "sonuliving156@gmail.com",
-      "username":"Sonu Gupta",
+      "username": "Sonu Gupta",
       "password": "Sonu@56787",
       "type": "admin",
       "id": 1
     },
     {
       "email": "uttam@gmail.com",
-      "username":"Uttam Kr Shaw",
+      "username": "Uttam Kr Shaw",
       "password": "12345",
       "type": "admin",
+      "order": [],
       "id": 2
     }
+  ],
+  "orders": [
   ],
   "products": [
     {

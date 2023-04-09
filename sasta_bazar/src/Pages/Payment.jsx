@@ -12,24 +12,28 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/ShoppingCom/Navbar";
+import { orderPlacedSuccess } from "../Redux/CartReducer/action";
+import { store } from "../Redux/store";
 
 const Payment = () => {
+  const dispatch = useDispatch()
   const [flag, setFlag] = useState(false);
   const [check, setCheck] = useState(false);
   const [totalcost, setTotalcost] = useState(0);
 
   const navigate = useNavigate();
-
-  const handleproceed = () => {
-    alert("Purchase Sucessful");
-    navigate("/shop");
-  };
   const cart = useSelector((store) => {
     return store.CartReducer.cart;
   });
+  const handleproceed = () => {
+    dispatch(orderPlacedSuccess(cart))
+    alert("Purchase Sucessful");
+    navigate("/shop");
+  };
+  
   useEffect(() => {
     cart && cart.map((e) => setTotalcost((prev) => prev + e.price));
   }, []);
