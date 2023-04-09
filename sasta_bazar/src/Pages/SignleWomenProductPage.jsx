@@ -95,22 +95,12 @@ const SignleWomenProductPage = () => {
           </Heading>
           <HStack w="100%" gap="10%" mt="5">
             <Button
-              variant="outline"
-              w="40%"
+              colorScheme="facebook"
+              w="60%"
               border="1px solid blue"
-              _hover={{ bg: "blue", color: "white" }}
               onClick={handleCartAdd}
             >
               Add to Cart
-            </Button>
-            <Button
-              w="40%"
-              bg="#2a6462"
-              color="white"
-              _hover={{ bg: "blue", color: "white" }}
-              onClick={handleCartAdd}
-            >
-              Buy Now
             </Button>
           </HStack>
           <Box borderBottom="2px solid gray">
@@ -123,24 +113,6 @@ const SignleWomenProductPage = () => {
           <Text color="gray">Size:Medium</Text>
           <Text color="gray">SKU:UTMF003578</Text>
         </Box>
-      </Flex>
-      <Flex
-        direction={["column", "column", "row"]}
-        color="gray"
-        bg="#232324"
-        justifyContent="space-between"
-        alignItems="center"
-        h="80px"
-        mt="10"
-      >
-        <Box ml="5">Copyright © 1996-2023 IndiaMART. All rights reserved.</Box>
-        <HStack mr="5" gap="5">
-          <Box>Home </Box>
-          <Box> Sell on IndiaMART</Box>
-          <Box>FAQ</Box>
-          <Box>Terms of Use</Box>
-          <Box> Privacy Policy</Box>
-        </HStack>
       </Flex>
     </Box>
   );

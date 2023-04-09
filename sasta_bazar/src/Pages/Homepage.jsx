@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Box,
@@ -11,6 +11,7 @@ import {
   InputGroup,
   InputLeftAddon,
 } from "@chakra-ui/react";
+import { FaArrowUp } from "react-icons/fa";
 import { Navbar } from "../Components/Navbar";
 import Carousel from "../Components/Carousel";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,18 +22,39 @@ import {
 } from "../Redux/ProductReducer/action";
 import MensProductCards from "../Components/MensProductCards";
 import CardSkeleton from "../Components/Skeleton";
-
+import MobileAccessoriesCards from "../Components/MobileAccessoriesCards";
+import WomensProductCards from "../Components/WomensProductCards";
 export const Homepage = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
   const { isLoading, isError, mens_data, mobile_data, womens_data } =
     useSelector((store) => store.ProductReducer);
   //getting data from server
   useEffect(() => {
     dispatch(getMensData());
+  }, []);
+  useEffect(() => {
     dispatch(getWomensData());
+  }, []);
+  useEffect(() => {
     dispatch(getMobileData());
   }, []);
-
+  // Show button when page is scrolled down
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 200) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+  // Scroll to top when button is clicked
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <Box>
       {/* Navbar */}
@@ -43,7 +65,7 @@ export const Homepage = () => {
       </Box>
 
       {/* Trending Products */}
-      <Box mt="10">
+      <Box p="5">
         <Heading textAlign="left">Trending Products</Heading>
         {isLoading ? (
           <CardSkeleton />
@@ -66,13 +88,13 @@ export const Homepage = () => {
           >
             {womens_data.length > 0 &&
               womens_data.map((e, ind) => {
-                return ind < 5 ? <MensProductCards {...e} /> : "";
+                return ind < 5 ? <WomensProductCards key={e.id} {...e} /> : "";
               })}
           </Box>
         )}
       </Box>
       {/* Deals of the day  */}
-      <Box mt="5">
+      <Box p="3">
         <Heading textAlign="left">Deals of the day</Heading>
         {isLoading ? (
           <CardSkeleton />
@@ -95,13 +117,21 @@ export const Homepage = () => {
           >
             {mens_data.length > 0 &&
               mens_data.map((e, ind) => {
-                return ind < 5 ? <MensProductCards {...e} /> : "";
+                return ind < 5 ? <MensProductCards key={e.id} {...e} /> : "";
               })}
           </Box>
         )}
       </Box>
+      {/* Banner section */}
+      <Box pt={10} w="95%" margin="auto">
+        <Image
+          width="100%"
+          height="100%"
+          src="https://shopping.imimg.com/style/bnr_D.webp"
+        ></Image>
+      </Box>
       {/* Todays Specials  */}
-      <Box mt="5">
+      <Box p="5">
         <Heading textAlign="left">Today's Specials </Heading>
         {isLoading ? (
           <CardSkeleton />
@@ -124,11 +154,16 @@ export const Homepage = () => {
           >
             {mobile_data.length > 0 &&
               mobile_data.map((e, ind) => {
-                return ind < 5 ? <MensProductCards {...e} /> : "";
+                return ind < 5 ? (
+                  <MobileAccessoriesCards key={e.id} {...e} />
+                ) : (
+                  ""
+                );
               })}
           </Box>
         )}
       </Box>
+
       {/* Get mobile App Section */}
 
       <Box width={{ base: "100%", sm: "90%", md: "80%" }} margin="auto" mt={20}>
@@ -169,6 +204,29 @@ export const Homepage = () => {
             </Box>
           </Box>
         </Flex>
+      </Box>
+      {/* scroll to top button */}
+      <Box>
+        <Button
+          onClick={scrollToTop}
+          colorScheme="facebook"
+          position="fixed"
+          bottom="60px"
+          border="1px solid #2e3192"
+          right="15px"
+          zIndex="100"
+          display={isVisible ? "flex" : "none"}
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="full"
+          boxShadow="xl"
+          bg="white"
+          _hover={{ bg: "#7ff789" }}
+          // _active={{ bg: "gray.900" }}
+          size="md"
+        >
+          <FaArrowUp color="#2e3192" _hover={{ color: "#f8f3f3" }} />
+        </Button>
       </Box>
     </Box>
   );
