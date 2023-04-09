@@ -45,7 +45,7 @@ const WomensProductCards = ({ brands, image, title, price, id }) => {
         width="100%"
         m="auto"
       >
-        <Link to={`/womens/${id}`}>Buy Now</Link>
+        <Link to={`/womens/${id}`}>See Details</Link>
       </Button>
     </Box>
   );

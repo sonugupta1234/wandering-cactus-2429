@@ -45,7 +45,7 @@ const MobileAccessoriesCards = ({ brands, image, title, price, id }) => {
         width="100%"
         m="auto"
       >
-        <Link to={`/mobile/${id}`}>Buy Now</Link>
+        <Link to={`/mobile/${id}`}>See Details</Link>
       </Button>
     </Box>
   );
