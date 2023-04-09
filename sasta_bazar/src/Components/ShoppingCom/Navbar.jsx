@@ -18,7 +18,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Navbar = () => {
   return (
-    <Box m={3} position="sticky" top="0px" p="2" zIndex="100">
+    <Box m={3} position="sticky" top="0px" bg="white" p="2" zIndex="100">
       <Flex
         w="90%"
         margin="auto"
@@ -41,11 +41,15 @@ const Navbar = () => {
           p={[, , 2]}
           direction={["column", "column", "row"]}
           gap={["5", "5", "0"]}
-          alignItems={["", "center"]}
-          display={["none", "flex"]}
+          alignItems={["center", "center"]}
         >
-          {" "}
-          <InputGroup pl={10} pr={10} size="md">
+          <InputGroup
+            pl={10}
+            pr={10}
+            size="md"
+            mt={{ sm: "3", base: "3" }}
+            w={{ sm: "120%", base: "120%" }}
+          >
             <InputLeftAddon h={12} bg="white" children="Shop" />
             <Input h={12} placeholder="what are you looking for" />
             <InputRightAddon
@@ -60,7 +64,7 @@ const Navbar = () => {
               }
             />
           </InputGroup>
-          <Button h={12} pl={8} pr={8} bg="#2e3192" color="white">
+          <Button h={12} pl={10} pr={10} colorScheme="facebook">
             Bulk Requirement
           </Button>
           <Link to="/cart">
