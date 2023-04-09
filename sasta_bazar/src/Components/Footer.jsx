@@ -15,6 +15,7 @@ import {
 import { ReactNode } from "react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { BiMailSend } from "react-icons/bi";
+import logo from "../Images/logo.png"
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -62,7 +63,7 @@ export default function Footer() {
           <Stack spacing={6}>
             <Box>
               <Image
-                src="https://shopping.imimg.com/style/im_logo.jpg"
+                src={logo}
                 alt="logo"
               />
             </Box>
