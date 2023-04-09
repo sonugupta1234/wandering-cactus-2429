@@ -17,40 +17,6 @@
     }
   ],
   "orders": [
-    [
-      {
-        "id": 8,
-        "image": "https://5.imimg.com/data5/ECOM/Default/2022/10/VO/WR/KJ/156564966/8-13-500x500.jpg",
-        "title": "Be Desi Men Cotton Abstract Design Regular Fit Long Kurta",
-        "brands": "Navsari Trends LLP",
-        "price": 600,
-        "date":"15/05/25",
-        "user":"uttam"
-      },
-      {
-        "id": 9,
-        "image": "https://5.imimg.com/data5/ECOM/Default/2022/12/GW/JM/PO/90086993/f3185f71-msjckt60066-1-a6a4559e-9f06-41c1-b9b5-bad5b3ccd6c0-500x500.jpg",
-        "title": "Men's Black Washed Denim Jacket",
-        "brands": "NOZ2TOZ",
-        "price": 1358
-      }
-    ],
-    [
-      {
-        "id": 60,
-        "image": "https://5.imimg.com/data5/ECOM/Default/2022/10/VG/PK/YQ/13342524/img-2747-500x500.jpg",
-        "title": "Culver City Coords White Pant Set",
-        "brands": "Shraddhaa Trends",
-        "price": 2300
-      },
-      {
-        "id": 58,
-        "image": "https://5.imimg.com/data5/ECOM/Default/2022/12/IP/RC/AP/90086993/nvjmp80019-1-500x500.jpg",
-        "title": "Girls Yellow Denim Playsuit",
-        "brands": "NOZ2TOZ",
-        "price": 997
-      }
-    ]
   ],
   "products": [
     {
