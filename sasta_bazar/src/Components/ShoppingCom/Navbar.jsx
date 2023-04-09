@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import logo from "../../Images/logo.png"
 
 const Navbar = () => {
   return (
@@ -32,7 +33,7 @@ const Navbar = () => {
             <Image
               pr={10}
               w={["auto", "auto", "250px"]}
-              src="https://shopping.imimg.com/style/im_logo.jpg"
+              src={logo}
             ></Image>
           </Link>
         </Flex>
