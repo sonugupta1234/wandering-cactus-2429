@@ -4,7 +4,7 @@ import axios from "axios"
 
 
 export const createProduct = (payload) => {
-    axios.post(`http://localhost:8000/products`, payload)
+    axios.post(`https://wild-blue-swallow-wig.cyclic.app/products`, payload)
 }
 
 export const get_product_request = () => {
@@ -22,18 +22,18 @@ export const get_product_success = (payload) => {
 
 export const GET_PRODUCT = (dispatch) =>{
 dispatch(get_product_request())
-axios.get(`http://localhost:8000/products`)
+axios.get(`https://wild-blue-swallow-wig.cyclic.app/products`)
 .then((res)=>dispatch(get_product_success(res.data)))
 .catch((res)=>dispatch(get_product_failure()))
 }
 
 export const UPDATE_PRODUCT = (payload) => (dispatch) =>{
-   axios.patch(`http://localhost:8000/products/${payload.id}`,payload)
+   axios.patch(`https://wild-blue-swallow-wig.cyclic.app/products/${payload.id}`,payload)
    .then(()=>dispatch(GET_PRODUCT))
 }
 
 export const DELETE_PRODUCT = (payload) =>(dispatch)=>{
    // console.log(payload)
-     axios.delete(`http://localhost:8000/products/${payload}`)
+     axios.delete(`https://wild-blue-swallow-wig.cyclic.app/products/${payload}`)
      .then(()=>dispatch(GET_PRODUCT))
 }
