@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProductinCart from "../Components/ProductinCart";
 import { deleteCartData } from "../Redux/CartReducer/action";
-import { Navbar } from "../../src/Components/Navbar"
+import Navbar from "../Components/ShoppingCom/Navbar";
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -14,6 +14,8 @@ const Cart = () => {
   const cart = useSelector((store) => {
     return store.CartReducer.cart;
   });
+
+  localStorage.setItem("cart", JSON.stringify(cart))
 
   const deletefunc = (id) => {
     let carthai = cart.filter((el) => el.id !== id);
@@ -27,17 +29,24 @@ const Cart = () => {
   // console.log(totalcost, "cost");
   if (cart.length == 0) {
     return (
-      <Box>
-        <Text ml="40px" fontSize="3xl" as="b">
-          My Cart
-        </Text>
-        <hr />
-        <Box textAlign="center">
-          <Text p="6rem" fontSize="5xl" fontWeight="semibold">
-            Cart Is Empty 🛒 ☹️
-          </Text>
-        </Box>
-      </Box>
+      <>
+        <div>
+          <Navbar />
+        </div>
+        <div>
+          <Box>
+            <Text ml="40px" fontSize="3xl" as="b">
+              My Cart
+            </Text>
+            <hr />
+            <Box textAlign="center">
+              <Text p="6rem" fontSize="5xl" fontWeight="semibold">
+                Cart Is Empty 🛒 ☹️
+              </Text>
+            </Box>
+          </Box>
+        </div>
+      </>
     );
   }
   return (
@@ -60,7 +69,7 @@ const Cart = () => {
             </span>{" "}
             items in your cart.
           </Text>
-          {cart?.map((el) => (
+          {cart.length > 0 && cart.map((el) => (
             <ProductinCart
               key={el.id}
               {...el}

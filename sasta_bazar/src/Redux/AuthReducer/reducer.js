@@ -12,9 +12,9 @@ import {
 
 const initialState = {
     isLoading: false,
-    isAuth: false,
+    isAuth: JSON.parse(localStorage.getItem("isAuth")) || false,
     userdata: [],
-    user: [],
+    user: JSON.parse(localStorage.getItem("user")) ||  [],
     isError: false
 }
 
@@ -70,7 +70,8 @@ export const reducer = (state = initialState, {type, payload}) => {
         case SET_LOGOUT:
             return {
                 ...state,
-                isAuth: false
+                isAuth: false,
+                user:[]
             }
 
         default:

@@ -40,7 +40,7 @@ const MainRoutes = () => {
           element={<SingleMobileAccessoriesProductPage />}
         />
         <Route path="/cart" element={<PrivateRoutes><Cart /></PrivateRoutes>} />
-        <Route path="/shop" element={<ShopIndex />} />
+        <Route path="/shop" element={<PrivateRoutes><ShopIndex /></PrivateRoutes>} />
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
         <Route path="/admin" element={<Admin_Home />} />
         <Route path="/admin_add_product" element={<NewProduct />} />

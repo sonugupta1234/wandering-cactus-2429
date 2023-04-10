@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import {
   Box,
   Center,
@@ -31,13 +31,25 @@ import { Link } from "react-router-dom"
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import logo from "../Images/logo.png"
 import user from "../Images/user.png"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { store } from "../Redux/store";
+import { logout } from "../Redux/AuthReducer/action.js"
 
 function Navbar() {
+  const dispatch = useDispatch()
   const { isOpen, onOpen, onClose } = useDisclosure();
   const user = useSelector((store) => store.AuthReducer.user)
   const isAuth = useSelector((store) => store.AuthReducer.isAuth)
+
+  console.log("Auth", isAuth);
+  console.log("user", user)
+
+  const handleLogout = () => {
+    dispatch(logout)
+  }
+  useEffect(() => {
+
+  }, [isAuth])
   return (
     <>
       <Box px={4} bg="#f7fafc" position="sticky" top="0px" zIndex="100">
@@ -51,10 +63,13 @@ function Navbar() {
           />
           <HStack spacing={8} alignItems={"center"}>
             <Box>
+              <Link to={"/"}>              
               <Image
                 src={logo}
                 alt="logo"
               />
+              </Link>
+
             </Box>
             <HStack
               as={"nav"}
@@ -93,8 +108,19 @@ function Navbar() {
                   <MenuItem >
                     < BackdropExample />
                   </MenuItem>
+                  {user.type === "admin" ?
+                    <Link to={"/admin"}>
+                      <Button>
+                        Admin Pannel
+                      </Button>
+                    </Link>
+                    : null}
                   <MenuDivider />
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem>
+                    <Button onClick={handleLogout}>
+                      Logout
+                    </Button>
+                  </MenuItem>
                 </MenuList>
               </Menu> :
               <Link to="/login">
@@ -153,7 +179,7 @@ export const BackdropExample = () => {
           <ModalHeader>User Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-           <UserDetails />
+            <UserDetails />
           </ModalBody>
           <ModalFooter>
             <Button colorScheme='blue' mr={3} onClick={onClose}>
