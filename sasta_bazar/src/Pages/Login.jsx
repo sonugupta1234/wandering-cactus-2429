@@ -38,7 +38,6 @@ export default function SignIn() {
     const user = useSelector((store) => store.AuthReducer.user)
     const handleLogin = () => {
         let new_data = userdata.find((item) => item.email === email && item.password === password)
-
         if (new_data) {
             toast({
                 title: 'Login Successfull',
@@ -48,8 +47,8 @@ export default function SignIn() {
                 duration: 3000,
                 isClosable: true,
             })
-             dispatch(authstatus(new_data))
-            navigate('/shop')
+            dispatch(authstatus(new_data))
+            navigate("/shop")
         } else {
             toast({
                 title: 'Login Failed',

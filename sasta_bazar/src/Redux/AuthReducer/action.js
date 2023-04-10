@@ -35,7 +35,7 @@ export const postdataerror = () => {
 }
 
 export const getauthstatus = (payload) => {
-    return {type: SET_AUTH_DATA , payload}
+    return {type: SET_AUTH_DATA, payload}
 }
 
 export const gologout = () => {
@@ -43,25 +43,27 @@ export const gologout = () => {
 }
 
 
-export const adddata = (newdata) => async (dispatch) => {
+export const adddata = (payload) =>  (dispatch) => {
     dispatch(postdatarequest())
-    await axios.post(" http://localhost:8000/userdata", newdata).then(() => dispatch(postdatasuccess())).catch(() => dispatch(postdataerror()))
+   return  axios.post(" http://localhost:8000/userdata", payload)
+    .then(() => dispatch(postdatasuccess()))
+    .catch(() => dispatch(postdataerror()))
 }
 
 export const getdata = async (dispatch) => {
     dispatch(getdatarequest())
     await axios.get("http://localhost:8000/userdata").then((res) => {
-        console.log(res.data)
         dispatch(getdatasuccess(res.data))
     }).catch(() => dispatch(getdataerror()))
 }
 
-export const authstatus  = (payload) => (dispatch) => {
-    //console.log("Working on auth");
-    //console.log(payload);
-    dispatch(getauthstatus(payload))
+export const authstatus = (payload) => (dispatch) => {
+    localStorage.setItem("user", JSON.stringify(payload))
+    localStorage.setItem("isAuth", JSON.stringify(true))
+ dispatch(getauthstatus(payload))
 }
 
 export const logout = (dispatch) => {
+    localStorage.clear();
     dispatch(gologout())
 }

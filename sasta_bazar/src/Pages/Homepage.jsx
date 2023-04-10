@@ -24,8 +24,10 @@ import MensProductCards from "../Components/MensProductCards";
 import CardSkeleton from "../Components/Skeleton";
 import MobileAccessoriesCards from "../Components/MobileAccessoriesCards";
 import WomensProductCards from "../Components/WomensProductCards";
+import { store } from "../Redux/store";
 export const Homepage = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isAuth = useSelector((store)=>store.AuthReducer.isAuth)
   const dispatch = useDispatch();
   const { isLoading, isError, mens_data, mobile_data, womens_data } =
     useSelector((store) => store.ProductReducer);

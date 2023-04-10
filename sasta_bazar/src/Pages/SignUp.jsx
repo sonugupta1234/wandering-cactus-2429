@@ -21,7 +21,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from "react-icons/fi"
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Navbar } from '../Components/Navbar';
-import { authstatus, getdata } from '../Redux/AuthReducer/action';
+import { adddata, authstatus, getdata } from '../Redux/AuthReducer/action';
 import { useSelector, useDispatch } from 'react-redux';
 import { store } from '../Redux/store';
 
@@ -34,67 +34,21 @@ export default function SignUp() {
     const [show, setShow] = useState(false)
     const location = useLocation()
     const toast = useToast()
-
     const userdata = useSelector((store) => store.AuthReducer.userdata)
-
     const isAuth = useSelector((store) => store.AuthReducer.isAuth)
     const user = useSelector((store) => store.AuthReducer.user)
-    const handleLogin = () => {
-        let new_data = userdata.find((item) => item.email === email && item.password === password)
-
-        if (new_data) {
-            toast({
-                title: 'Login Successfull',
-                description: `Logged In as ${new_data.username}`,
-                position: 'top',
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-            })
-            dispatch(authstatus(new_data)).then(() => navigate(location.state, { replace: true }))
-        } else {
-            toast({
-                title: 'Login Failed',
-                description: `Pls Enter Correct Credentials`,
-                position: 'top',
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-            })
+    const handleSignup = () => {
+        const payload = {
+            email,
+            password,
+            username,
+            type: "user",
+            order:[]
         }
+    dispatch(adddata(payload)).then(()=>{
+        navigate("/login")
+    })
     }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     let new_data = userdata.find((item) => item.email === email && item.password === password)
-
-    //     if (new_data) {
-    //         toast({
-    //             title: 'Login Successfull',
-    //             description: "Logged In as Sonu Gupta",
-    //             position: 'top',
-    //             status: 'success',
-    //             duration: 5000,
-    //             isClosable: true,
-    //         })
-    //         dispatch(authstatus).then(() => {
-    //             navigate(location.state, { replace: true })
-    //         })
-    //     } else {
-    //         toast2({
-    //             title: 'Invalid User',
-    //             position: 'top',
-    //             status: 'error',
-    //             duration: 5000,
-    //             isClosable: true,
-    //         })
-    //     }
-
-    // }
-
-    useEffect(() => {
-        dispatch(getdata)
-    }, [])
     return (
         <div>
             <div>
@@ -162,7 +116,7 @@ export default function SignUp() {
                                         <Link color={'#00A699'}>Forgot password?</Link>
                                     </Stack>
                                     <Button bg={'#00A699'}
-                                        onClick={handleLogin}
+                                        onClick={handleSignup}
                                         color={'white'}
                                         _hover={
                                             { bg: '#00A699' }
@@ -174,7 +128,7 @@ export default function SignUp() {
                                         _hover={
                                             { bg: '#00A699' }
                                         }>
-                                        <Link to='/signup'>
+                                        <Link to='/login'>
                                             Login to your Account
                                         </Link>
                                     </Button>
