@@ -22,5 +22,5 @@ export const orderPlacedSuccess = (payload) => (dispatch) => {
 
     // console.log("orders",orders)
     // console.log("payload",payload);
-    axios.post(`http://localhost:8000/orders`, payload).then((res) => dispatch(orderPlaced())).catch((err) => console.log(err))
+    axios.post(`https://wild-blue-swallow-wig.cyclic.app/orders`, payload).then((res) => dispatch(orderPlaced())).catch((err) => console.log(err))
 }
