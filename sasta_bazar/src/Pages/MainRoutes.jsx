@@ -20,6 +20,7 @@ import Admin_Home from "../Admin/Components/Admin_Home/Admin_Home";
 import { Product } from "../Admin/Components/ProductListPage/Product";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import { Admin_Userlist } from "../Admin/Components/Admin_User_List/Admin_Userlist";
 import SearchData from "./SearchData";
 import SingleAllProductData from "./SingleAllProductData";
 
@@ -29,10 +30,10 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/mens" element={<Mens />} />
-        <Route path="/mens/:id" element={<SignleMenProductPage />} />
+        <Route path="/mens/:id" element={<PrivateRoutes><SignleMenProductPage /></PrivateRoutes>} />
         <Route path="/womens" element={<Womens />} />
-        <Route path="/womens/:id" element={<SignleWomenProductPage />} />
-        <Route path="/searchdata/:id" element={<SingleAllProductData />} />
+        <Route path="/womens/:id" element={<PrivateRoutes> <SignleWomenProductPage /> </PrivateRoutes>} />
+        <Route path="/searchdata/:id" element={<PrivateRoutes><SingleAllProductData /></PrivateRoutes>} />
         <Route path="/mobile" element={<MobileAccessories />} />
         <Route path="/searchdata" element={<SearchData />} />
         <Route path="/login" element={<Login />} />
@@ -41,7 +42,7 @@ const MainRoutes = () => {
 
         <Route
           path="/mobile/:id"
-          element={<SingleMobileAccessoriesProductPage />}
+          element={<PrivateRoutes> <SingleMobileAccessoriesProductPage /></PrivateRoutes>}
         />
         <Route
           path="/cart"
@@ -53,16 +54,12 @@ const MainRoutes = () => {
         />
         <Route
           path="/shop"
-          element={
-            <PrivateRoutes>
-              <ShopIndex />
-            </PrivateRoutes>
-          }
-        />
+          element={<ShopIndex />} />
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
         <Route path="/admin" element={<Admin_Home />} />
         <Route path="/admin_add_product" element={<NewProduct />} />
         <Route path="/admin_product_list" element={<Product />} />
+        <Route path="/admin_user_list" element={<Admin_Userlist />} />
       </Routes>
     </div>
   );

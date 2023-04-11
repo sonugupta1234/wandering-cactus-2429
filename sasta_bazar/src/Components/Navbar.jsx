@@ -45,8 +45,8 @@ function Navbar() {
   const user = useSelector((store) => store.AuthReducer.user)
   const isAuth = useSelector((store) => store.AuthReducer.isAuth)
 
-  console.log("Auth", isAuth);
-  console.log("user", user)
+  // console.log("Auth", isAuth);
+  // console.log("user", user)
 
   const handleLogout = () => {
     dispatch(logout)
