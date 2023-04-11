@@ -5,3 +5,5 @@ export const GET_DATA_ERROR = "GET_DATA_ERROR";
 export const GET_WOMENS_DATA_SUCESS = "GET_WOMENS_DATA_SUCESS";
 //mobile accessories
 export const GET_MOBILE_DATA_SUCESS = "GET_MOBILE_DATA_SUCESS";
+//all data
+export const GET_ALL_DATA_SUCESS = "GET_ALL_DATA_SUCESS";
