@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -13,11 +13,24 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import logo from "../../Images/logo.png"
 
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import logo from "../../Images/logo.png";
+import { useDispatch } from "react-redux";
+import { getAllData } from "../../Redux/ProductReducer/action";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [query, setQuery] = useState("");
+
+  const handleSearch = () => {
+    dispatch(getAllData(query));
+
+    navigate("/searchdata");
+  };
+
   return (
     <Box m={3} position="sticky" top="0px" bg="white" p="2" zIndex="100">
       <Flex
@@ -30,11 +43,7 @@ const Navbar = () => {
       >
         <Flex>
           <Link to="/shop">
-            <Image
-              pr={10}
-              w={["auto", "auto", "250px"]}
-              src={logo}
-            ></Image>
+            <Image pr={10} w={["auto", "auto", "250px"]} src={logo}></Image>
           </Link>
         </Flex>
 
@@ -52,8 +61,14 @@ const Navbar = () => {
             w={{ sm: "120%", base: "120%" }}
           >
             <InputLeftAddon h={12} bg="white" children="Shop" />
-            <Input h={12} placeholder="what are you looking for" />
+            <Input
+              h={12}
+              placeholder="what are you looking for"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
             <InputRightAddon
+              onClick={handleSearch}
               bg="#2a6462"
               h={12}
               color="white"

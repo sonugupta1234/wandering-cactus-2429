@@ -1,4 +1,5 @@
 import {
+  GET_ALL_DATA_SUCESS,
   GET_DATA_ERROR,
   GET_DATA_REQUEST,
   GET_MENS_DATA_SUCESS,
@@ -12,6 +13,7 @@ const initState = {
   mens_data: [],
   womens_data: [],
   mobile_data: [],
+  all_data: [],
 };
 export const reducer = (state = initState, { type, payload }) => {
   switch (type) {
@@ -32,6 +34,13 @@ export const reducer = (state = initState, { type, payload }) => {
         isLoading: false,
         isError: false,
         mobile_data: payload,
+      };
+    case GET_ALL_DATA_SUCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        all_data: payload,
       };
     case GET_DATA_ERROR:
       return { ...state, isLoading: false, isError: true };

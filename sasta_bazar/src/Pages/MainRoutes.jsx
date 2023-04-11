@@ -18,8 +18,10 @@ import Payment from "./Payment";
 import { NewProduct } from "../Admin/Components/AddProductPage/NewProduct";
 import Admin_Home from "../Admin/Components/Admin_Home/Admin_Home";
 import { Product } from "../Admin/Components/ProductListPage/Product";
-import Login from "./Login"
+import Login from "./Login";
 import SignUp from "./SignUp";
+import SearchData from "./SearchData";
+import SingleAllProductData from "./SingleAllProductData";
 
 const MainRoutes = () => {
   return (
@@ -30,7 +32,9 @@ const MainRoutes = () => {
         <Route path="/mens/:id" element={<SignleMenProductPage />} />
         <Route path="/womens" element={<Womens />} />
         <Route path="/womens/:id" element={<SignleWomenProductPage />} />
+        <Route path="/searchdata/:id" element={<SingleAllProductData />} />
         <Route path="/mobile" element={<MobileAccessories />} />
+        <Route path="/searchdata" element={<SearchData />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/payment" element={<Payment />} />
@@ -39,8 +43,22 @@ const MainRoutes = () => {
           path="/mobile/:id"
           element={<SingleMobileAccessoriesProductPage />}
         />
-        <Route path="/cart" element={<PrivateRoutes><Cart /></PrivateRoutes>} />
-        <Route path="/shop" element={<PrivateRoutes><ShopIndex /></PrivateRoutes>} />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoutes>
+              <Cart />
+            </PrivateRoutes>
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <PrivateRoutes>
+              <ShopIndex />
+            </PrivateRoutes>
+          }
+        />
         <Route path="*" element={<h1>Error 404 Page not found</h1>} />
         <Route path="/admin" element={<Admin_Home />} />
         <Route path="/admin_add_product" element={<NewProduct />} />
