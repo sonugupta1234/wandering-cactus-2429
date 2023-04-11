@@ -28,8 +28,13 @@ const Payment = () => {
   const cart = useSelector((store) => {
     return store.CartReducer.cart;
   });
+  const user = useSelector((store)=>store.AuthReducer.user)
   const handleproceed = () => {
-    dispatch(orderPlacedSuccess(cart))
+    // const payload = {
+    //   cart,
+    //   user
+    // }
+    dispatch(orderPlacedSuccess(user))
     alert("Purchase Sucessful");
     navigate("/shop");
   };

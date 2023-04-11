@@ -1,9 +1,10 @@
-import {GET_PRODUCT_FAILURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS} from "./actionTypes"
+import {GET_PRODUCT_FAILURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS, GET_USERS_SUCCESS} from "./actionTypes"
 
 const initialState = {
     isLoading: false,
     isError: false,
-    products: []
+    products: [],
+    users: []
 }
 
 export const reducer = (state = initialState, {type, payload}) => {
@@ -24,6 +25,11 @@ export const reducer = (state = initialState, {type, payload}) => {
                 ...state,
                 isLoading: false,
                 products: payload
+            }
+        case GET_USERS_SUCCESS:
+            return {
+                ...state,
+                users: payload
             }
         default:
             return state

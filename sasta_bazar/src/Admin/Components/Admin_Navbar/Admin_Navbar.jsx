@@ -1,96 +1,9 @@
-// import React, { useState } from "react";
-// import "./Admin_Navbar.css";
-// import {
-//   FaFacebookSquare,
-//   FaInstagramSquare,
-//   FaYoutubeSquare,
-// } from "react-icons/fa";
-// import { GiHamburgerMenu } from "react-icons/gi";
-
-// import { NavLink } from "react-router-dom";
-// const Admin_Navbar = () => {
-//   const [showMediaIcons, setShowMediaIcons] = useState(false);
-//   return (
-//     <div>
-//       <nav className="main-nav">
-//         {/* 1st logo part  */}
-//         <div className="logo">
-//           <h2>
-//             <span>A</span>dmin-
-//             <span>P</span>annel
-//           </h2>
-//         </div>
-
-//         {/* 2nd menu part  */}
-//         <div
-//           className={
-//             showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
-//           }>
-//           <ul>
-//             <li>
-//               <NavLink to="/admin">Home</NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/admin_add_product">Add Products</NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/admin_product_list">Product List</NavLink>
-//             </li>
-//             {/* <li>
-//               <NavLink to="/contact">contact</NavLink>
-//             </li> */}
-//           </ul>
-//         </div>
-
-//         {/* 3rd social media links */}
-//         <div className="social-media">
-//          {/*  <ul className="social-media-desktop">
-//             <li>
-//               <a
-//                 href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA"
-//                 target="_thapa">
-//                 <FaFacebookSquare className="facebook" />
-//               </a>
-//             </li>
-//             <li>
-//               <a
-//                 href="https://www.instagram.com/thapatechnical/"
-//                 target="_thapa">
-//                 <FaInstagramSquare className="instagram" />
-//               </a>
-//             </li>
-//             <li>
-//               <a
-//                 href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA"
-//                 target="_thapa">
-//                 <FaYoutubeSquare className="youtube" />
-//               </a>
-//             </li>
-//           </ul>
-//        */}
-//         {/* hamburget menu start  */}
-//         <div className="hamburger-menu">
-//           <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-//             <GiHamburgerMenu />
-//           </a>
-//         </div>
-//     </div> 
-//       </nav >
-//     </div >
-//   )
-// }
-
-// export default Admin_Navbar
-
-
-
 import { ReactNode } from 'react';
 import {
   Box,
   Flex,
   Avatar,
   HStack,
-  Link,
   IconButton,
   Button,
   Menu,
@@ -100,13 +13,14 @@ import {
   MenuDivider,
   useDisclosure,
   useColorModeValue,
-  Stack,
+  Stack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Center, Image, Heading, Text,Link
 } from '@chakra-ui/react';
+// import { Link } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-const Links = [{ name: 'Dashboard' , to:"/admin" }, { name: 'Add_Products' , to:"/admin_add_product" }, { name: 'Product_List' , to:"/admin_product_list" }];
-
-// const Links = [{ name: 'Dashboard', to: "/admin" }, { name: 'Add_Product', to: "/admin_add_product" }, { name: 'Product_List', to: "/admin_product_list" }];
-
+import { useDispatch, useSelector } from 'react-redux';
+import { store } from '../../../Redux/store';
+import { logout } from "../../../Redux/AuthReducer/action.js"
+const Links = [{ name: 'Dashboard', to: "/admin" }, { name: 'Add_Products', to: "/admin_add_product" }, { name: 'User_List', to: "/admin_user_list" }, { name: 'Product_List', to: "/admin_product_list" }];
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
     px={2}
@@ -122,8 +36,12 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 );
 
 export default function Admin_Navbar() {
+  const dispatch = useDispatch()
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const user = useSelector((store) => store.AuthReducer.user)
+  const handleLogout = () => {
+    dispatch(logout)
+  }
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -162,10 +80,10 @@ export default function Admin_Navbar() {
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
+                <Link href="/"> <MenuItem>HomePage</MenuItem></Link>
+                <MenuItem><BackdropExample /></MenuItem>
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                <MenuItem>Logout</MenuItem>
               </MenuList>
             </Menu>
           </Flex>
@@ -182,7 +100,112 @@ export default function Admin_Navbar() {
         ) : null}
       </Box>
 
-      <Box p={4}>Main Content Here</Box>
+      {/* <Box p={4}>Main Content Here</Box> */}
     </>
   );
 }
+
+
+
+export const BackdropExample = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onOpen}>User Details</Button>
+      <Modal
+        isCentered
+        onClose={onClose}
+        isOpen={isOpen}
+        motionPreset="slideInBottom"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>User Details</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <UserDetails />
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
+
+export const UserDetails = () => {
+  const user = useSelector((store) => store.AuthReducer.user);
+  return (
+    <Center py={6}>
+      <Box
+        maxW={"270px"}
+        w={"full"}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow={"2xl"}
+        rounded={"md"}
+        overflow={"hidden"}
+      >
+        <Image
+          h={"120px"}
+          w={"full"}
+          src={
+            "https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+          }
+          objectFit={"cover"}
+        />
+        <Flex justify={"center"} mt={-12}>
+          <Avatar
+            size={"xl"}
+            src={user}
+            alt={"Author"}
+            css={{
+              border: "2px solid white",
+            }}
+          />
+        </Flex>
+
+        <Box>
+          <Stack spacing={0} align={"center"} mb={5}>
+            <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
+              {user.username}
+            </Heading>
+            <Text color={"gray.500"}>{user.email}</Text>
+          </Stack>
+
+          <Stack direction={"row"} justify={"center"} spacing={6}>
+            <Stack spacing={0} align={"center"}>
+              <Text fontWeight={600}>{user.type}</Text>
+              <Text fontSize={"sm"} color={"gray.500"}>
+                Account Type
+              </Text>
+            </Stack>
+            <Stack spacing={0} align={"center"}>
+              <Text fontWeight={600}>{user.order.length}</Text>
+              <Text fontSize={"sm"} color={"gray.500"}>
+                Items Ordered
+              </Text>
+            </Stack>
+          </Stack>
+
+          <Button
+            w={"full"}
+            mt={8}
+            bg={useColorModeValue("#151f21", "gray.900")}
+            color={"white"}
+            rounded={"md"}
+            _hover={{
+              transform: "translateY(-2px)",
+              boxShadow: "lg",
+            }}
+          >
+            Follow
+          </Button>
+        </Box>
+      </Box>
+    </Center>
+  );
+};

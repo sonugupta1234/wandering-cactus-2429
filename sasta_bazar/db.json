@@ -13,7 +13,40 @@
       "username": "Uttam Kr Shaw",
       "password": "12345",
       "type": "admin",
-      "order": [],
+      "order": [
+        {
+          "id": 69,
+          "image": "https://5.imimg.com/data5/ECOM/Default/2023/1/EO/GW/AM/105565777/ns-navypink-1-500x500.jpg",
+          "title": "Night Suit Pyjama Set for Womens or Women's Pyjama Sets",
+          "brands": "Mehrang Exim",
+          "price": 449,
+          "category": "womens"
+        },
+        {
+          "id": 154,
+          "image": "https://5.imimg.com/data5/ECOM/Default/2022/11/ID/ID/RQ/68103635/001-5c5018ff-d9a3-4d23-9dc1-bfa3b10b9d27-500x500.jpg",
+          "title": "Verilux Stylus Pen For IPad",
+          "brands": "Reelay Ecommerce India Private Limited",
+          "price": 1600,
+          "category": "mobile_accessories"
+        },
+        {
+          "id": 2,
+          "image": "https://5.imimg.com/data5/ECOM/Default/2022/12/VS/FB/HL/90086993/727c6500-msjckt60065-1-573f3d5c-fd5a-434c-8e50-aa581c22f4c0-500x500.jpg",
+          "title": "Men's Blue Washed Denim Jacket",
+          "brands": "NOZ2TOZ",
+          "price": 1358,
+          "category": "mens"
+        },
+        {
+          "id": 17,
+          "image": "https://5.imimg.com/data5/ECOM/Default/2022/12/QM/AH/RR/90086993/eea84fa5-mspant50184-12-288688a1-0d2e-4b01-9836-c57026d7639c-500x500.jpg",
+          "title": "Men's Black Mascln Embroidered Joggers",
+          "brands": "NOZ2TOZ",
+          "price": 1019,
+          "category": "mens"
+        }
+      ],
       "id": 2
     },
     {
@@ -21,7 +54,32 @@
       "password": "12345",
       "username": "Testing",
       "type": "user",
-      "order": [],
+      "order": [
+        {
+          "id": 3,
+          "image": "https://5.imimg.com/data5/ECOM/Default/2023/1/RX/ZO/ME/10883763/urm001361pwhitegreycolor12-1-500x500.jpg",
+          "title": "Men White Striped Casual Shirt",
+          "brands": "AKR Industries Private Limited",
+          "price": 359,
+          "category": "mens"
+        },
+        {
+          "id": 1,
+          "image": "https://5.imimg.com/data5/ECOM/Default/2022/10/SS/WW/FC/156564966/5c2a1349-2-500x500.jpg",
+          "title": "Be Desi Men White Cotton Beige Butta Regular Fit Kurta",
+          "brands": "Navsari Trends LLP",
+          "price": 6250,
+          "category": "mens"
+        },
+        {
+          "id": 151,
+          "image": "https://5.imimg.com/data5/ECOM/Default/2023/2/WG/GY/BS/75590872/front-63600649c4815-apple-iphone-11-glass-phone-case-500x500.jpg",
+          "title": "Dream Catcher Iphone Glass Case",
+          "brands": "Uletus",
+          "price": 349,
+          "category": "mobile_accessories"
+        }
+      ],
       "id": 3
     }
   ],

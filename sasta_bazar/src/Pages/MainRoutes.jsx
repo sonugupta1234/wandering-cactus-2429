@@ -20,6 +20,7 @@ import Admin_Home from "../Admin/Components/Admin_Home/Admin_Home";
 import { Product } from "../Admin/Components/ProductListPage/Product";
 import Login from "./Login"
 import SignUp from "./SignUp";
+import { Admin_Userlist } from "../Admin/Components/Admin_User_List/Admin_Userlist";
 
 const MainRoutes = () => {
   return (
@@ -45,6 +46,7 @@ const MainRoutes = () => {
         <Route path="/admin" element={<Admin_Home />} />
         <Route path="/admin_add_product" element={<NewProduct />} />
         <Route path="/admin_product_list" element={<Product />} />
+        <Route path="/admin_user_list" element={<Admin_Userlist />} />
       </Routes>
     </div>
   );
