@@ -40,8 +40,6 @@ import { logout } from "../Redux/AuthReducer/action.js"
 function Navbar() {
   const dispatch = useDispatch()
   const { isOpen, onOpen, onClose } = useDisclosure();
-
- 
   const user = useSelector((store) => store.AuthReducer.user)
   const isAuth = useSelector((store) => store.AuthReducer.isAuth)
 
@@ -69,11 +67,11 @@ function Navbar() {
           <HStack spacing={8} alignItems={"center"}>
             <Box>
 
-              <Link to={"/"}>              
-              <Image
-                src={logo}
-                alt="logo"
-              />
+              <Link to={"/"}>
+                <Image
+                  src={logo}
+                  alt="logo"
+                />
               </Link>
 
 
@@ -113,9 +111,9 @@ function Navbar() {
                   </MenuItem>
                   {user.type === "admin" ?
                     <Link to={"/admin"}>
-                      <Button>
+                      <MenuItem>
                         Admin Pannel
-                      </Button>
+                      </MenuItem>
                     </Link>
                     : null}
                   <MenuDivider />

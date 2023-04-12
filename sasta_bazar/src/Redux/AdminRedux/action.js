@@ -30,9 +30,9 @@ export const get_user_success = (payload) => {
 }
 
 
-export const GET_PRODUCT = (dispatch) => {
+export const GET_PRODUCT =(payload)=> (dispatch) => {
     dispatch(get_product_request())
-    axios.get(`https://wild-blue-swallow-wig.cyclic.app/products`).then((res) => dispatch(get_product_success(res.data))).catch((res) => dispatch(get_product_failure()))
+    axios.get(`https://wild-blue-swallow-wig.cyclic.app/products?_page=${payload}&_limit=30`).then((res) => dispatch(get_product_success(res.data))).catch((res) => dispatch(get_product_failure()))
 }
 
 export const UPDATE_PRODUCT = (payload) => (dispatch) => {
