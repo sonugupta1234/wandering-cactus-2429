@@ -1,3 +1,4 @@
+import "./Admin_Userlist.css"
 import React, { useEffect } from 'react'
 import { store } from "../../../Redux/store";
 import { useSelector, useDispatch } from "react-redux"
@@ -16,8 +17,13 @@ export const Admin_Userlist = () => {
       <div>
         <Admin_Navbar />
       </div>
-      <div>
-        {users.length > 0 && users.map((el) => <Admin_UserCard key={el.id} {...el} />)}
+      <div className="card">
+        {users.length > 0 && users.map((el) =>
+        <div >
+        <Admin_UserCard key={el.id} {...el} />
+        </div>
+        )
+        }
       </div>
     </>
   )

@@ -1,0 +1,10 @@
+.card {
+    /* display: flex; */
+}
+
+.main {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+}
