@@ -38,4 +38,4 @@ Technologies used in the project:
 ### `Project Details`
 
 . github link- https://github.com/sonugupta1234/wandering-cactus-2429/tree/main/sasta_bazar <br/>
-. live link- https://india-mart-black.vercel.app/
+. live link- https://india-mart-3knhm4vnh-kripashankarpandey.vercel.app/
